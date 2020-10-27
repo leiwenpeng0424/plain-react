@@ -10,16 +10,17 @@ max_line_length = 120
 tab_width = 4
 trim_trailing_whitespace = true
 
-[{*.ats,*.ts,Routers}]
-indent_size = 2
-tab_width = 2
 
-[{*.cjs,*.js,tableRefactoring}]
-indent_size = 2
-tab_width = 2
-
-[{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
-indent_size = 2
-
-[{*.yaml,*.yml,.analysis_options}]
-indent_size = 2
+# [{*.ats,*.ts,Routers}]
+# indent_size = 2
+# tab_width = 2
+#
+# [{*.cjs,*.js}]
+# indent_size = 2
+# tab_width = 2
+#
+# [{*.har,*.jsb2,*.jsb3,*.json,.babelrc,.eslintrc,.prettierrc,.stylelintrc,bowerrc,jest.config}]
+# indent_size = 2
+#
+# [{*.yaml,*.yml,.analysis_options}]
+# indent_size = 2

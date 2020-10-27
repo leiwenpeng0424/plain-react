@@ -1,9 +1,10 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint/eslint-plugin"],
+  "plugins": ["prettier"],
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["**/npm"],
   "env": {
     "browser": true,
     "node": true,
@@ -11,6 +12,15 @@
     "commonjs": true,
     "worker": true
   },
+  "extends": ["prettier"],
+  "overrides": [
+    {
+      "files": ["**/*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint/eslint-plugin"],
+      "extends": ["plugin:@typescript-eslint/recommended"]
+    }
+  ],
   "rules": {
     "accessor-pairs": "error",
     "array-bracket-spacing": ["error", "never"],
@@ -23,7 +33,17 @@
     "brace-style": "off",
     "callback-return": "off",
     "camelcase": "off",
-    "comma-dangle": ["error", "never"],
+    "comma-dangle": [
+      "warn",
+      "never"
+      //      {
+      //        "arrays": "never",
+      //        "objects": "never",
+      //        "imports": "never",
+      //        "exports": "never",
+      //        "functions": "ignore"
+      //      }
+    ],
     "comma-spacing": "off",
     "comma-style": ["error", "last"],
     "complexity": "off",
@@ -45,12 +65,12 @@
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",
-    "indent": ["error", 4, { "SwitchCase": 1 }],
+    "indent": ["warn", 2, { "SwitchCase": 1 }],
     "init-declarations": "off",
-    "jsx-quotes": ["error", "prefer-double"],
+    //    "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": "off",
     "keyword-spacing": "off",
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["warn", "unix"],
     "lines-around-comment": "off",
     "max-depth": "off",
     "max-len": "off",
@@ -220,11 +240,7 @@
     "wrap-regex": "off",
     "yield-star-spacing": "error",
     "yoda": "off",
-    "react/sort-comp": "off",
-    "react/prefer-stateless-function": "off",
-    "react/jsx-tag-spacing": "error",
     "spaced-comment": ["error", "always"],
-    "react/jsx-no-bind": "off",
     "no-extra-boolean-cast": "off"
   }
 }
