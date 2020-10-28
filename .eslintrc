@@ -2,7 +2,7 @@
   "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 2020,
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.*.json"
   },
   "ignorePatterns": ["**/npm"],
   "env": {
