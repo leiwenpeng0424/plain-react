@@ -1,5 +1,7 @@
 {
   "name": "@plain-react/dom",
   "version": "0.0.0",
+  "module": "npm/dom.cjs.js",
+  "browser": "npm/dom.umd.js",
   "dependencies": {}
 }

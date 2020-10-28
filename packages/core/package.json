@@ -1,5 +1,7 @@
 {
   "name": "@plain-react/core",
   "version": "0.0.0",
+  "module": "npm/core.cjs.js",
+  "browser": "npm/core.umd.js",
   "dependencies": {}
 }

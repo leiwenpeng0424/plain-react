@@ -1,5 +1,7 @@
 {
   "name": "@plain-react/event",
   "version": "0.0.0",
+  "module": "npm/event.cjs.js",
+  "browser": "npm/event.umd.js",
   "dependencies": {}
 }

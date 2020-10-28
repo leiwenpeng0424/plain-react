@@ -2,9 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "sourceMap": true,
     "lib": ["DOM", "ESNext"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "pretty": true
   },
   "exclude": ["node_modules"]
 }
