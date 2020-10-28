@@ -26,8 +26,7 @@
   "lint-staged": {
     "packages/**/*.ts": [
       "prettier packages/**/*.ts --write",
-      "eslint",
-      "git add"
+      "eslint"
     ]
   },
   "devDependencies": {
