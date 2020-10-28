@@ -1,7 +1,13 @@
 {
   "name": "@plain-react/core",
   "version": "0.0.0",
-  "module": "npm/core.cjs.js",
+  "main": "npm/core.cjs.js",
+  "module": "npm/core.esm.js",
   "browser": "npm/core.umd.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "npm",
+    "types"
+  ],
   "dependencies": {}
 }

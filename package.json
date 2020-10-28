@@ -59,7 +59,7 @@
     "lint": "eslint --fix",
     "test": "echo 'testing'",
     "prettier": "prettier --write",
-    "build:dev": "rollup -c='./scripts/rollup/rollup.config.js'",
+    "build:dev": "rollup -c='./scripts/rollup/rollup.config.js' --development",
     "build:prod": "rollup -c='./scripts/rollup/rollup.config.js' --production",
     "dev": "rollup -c='./scripts/rollup/rollup.config.js'  --watch --development"
   }

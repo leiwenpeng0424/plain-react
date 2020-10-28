@@ -106,17 +106,39 @@ function main() {
   const configs = [];
 
   packages.forEach((pack) => {
-    const { module, browser } = pack.pkg;
+    let { main, module, browser } = pack.pkg;
+
+    main = main.replace(
+      /\.cjs\.js$/,
+      `.${!isDevelopment ? 'production' : 'development'}.cjs.js`,
+    );
+
+    module = module.replace(
+      /\.esm\.js$/,
+      `.${!isDevelopment ? 'production' : 'development'}.esm.js`,
+    );
+
+    browser = browser.replace(
+      /\.umd\.js$/,
+      `.${!isDevelopment ? 'production' : 'development'}.umd.js`,
+    );
+
     const config = {
       plugins,
       input: path.resolve(cwd, pack.name, 'src/index'),
 
       output: [
         {
-          format: 'cjs',
+          format: 'esm',
           exports: 'auto',
           sourcemap: shouldUseSourcemaps,
           file: path.resolve(cwd, pack.name, module),
+        },
+        {
+          format: 'cjs',
+          exports: 'auto',
+          sourcemap: shouldUseSourcemaps,
+          file: path.resolve(cwd, pack.name, main),
         },
         {
           name: 'plainCore',

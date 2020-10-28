@@ -1,7 +1,7 @@
 function createElement(
   element: string,
   props: Record<string, unknown>,
-  children: unknown[],
+  children: unknown[]
 ): unknown {
   if (children === undefined) {
     children = [];
@@ -9,9 +9,9 @@ function createElement(
 
   return {
     tag: element,
-    $$typeof: element,
     props: props,
-    children: children,
+    $$typeof: element,
+    children: children
   };
 }
 

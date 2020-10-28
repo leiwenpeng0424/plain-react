@@ -70,7 +70,7 @@
     //    "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": "off",
     "keyword-spacing": "off",
-    "linebreak-style": ["warn", "unix"],
+    "linebreak-style": ["warn", "windows"],
     "lines-around-comment": "off",
     "max-depth": "off",
     "max-len": "off",
