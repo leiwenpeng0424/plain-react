@@ -8,9 +8,11 @@ function createElement(
   }
 
   return {
+    type: '',
+    origin: '',
     tag: element,
     props: props,
-    $$typeof: element,
+    element: element,
     children: children
   };
 }

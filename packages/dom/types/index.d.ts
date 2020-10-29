@@ -1,1 +1,1 @@
-export function render(): void;
+export function render(dom: Element, elements: Record<never, unknown>): void;

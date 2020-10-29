@@ -129,7 +129,7 @@ function main() {
       output: ['esm', 'cjs', 'umd'].map((resolution) => {
         return {
           format: resolution,
-          export: 'auto',
+          exports: 'auto',
           sourcemap: shouldUseSourcemaps,
           name: resolution === 'umd' ? pack.name.replace(/\//, '') : undefined,
           file: path.resolve(
