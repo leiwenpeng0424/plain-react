@@ -1,5 +1,5 @@
 function render(domElement: Element, elements: unknown): void {
-  console.log(domElement, elements);
+  document.write('@plain-react/dom is WIP');
 }
 
 export { render };

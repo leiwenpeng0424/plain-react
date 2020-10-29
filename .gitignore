@@ -106,4 +106,4 @@ dist
 # project file
 .idea
 yarn.lock
-**/npm
+**/dist
