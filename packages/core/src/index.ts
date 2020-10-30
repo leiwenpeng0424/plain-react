@@ -1,19 +1,23 @@
+import { VNode } from '../types';
+
 function createElement(
   element: string,
-  props: Record<string, unknown>,
-  children: unknown[]
-): unknown {
+  props: Record<string, string | VNode>,
+  children?: (string | VNode)[]
+): VNode {
   if (children === undefined) {
     children = [];
   }
 
+  if ('children' in props) {
+    children.push(props.children);
+    delete props.children;
+  }
+
   return {
-    type: '',
-    origin: '',
     tag: element,
-    props: props,
-    element: element,
-    children: children
+    attrs: props,
+    children
   };
 }
 
