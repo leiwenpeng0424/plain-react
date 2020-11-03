@@ -1,0 +1,8 @@
+{
+  "name": "@plain-react/server",
+  "version": "1.0.0",
+  "module": "npm/server.cjs.js",
+  "browser": "npm/server.umd.js",
+  "dependencies": {},
+  "types": "types/index.d.ts"
+}

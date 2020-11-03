@@ -3,6 +3,7 @@
   "license": "MIT",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "author": {
     "name": "ray",
     "email": "leiwenpeng1994@outlook.com"
