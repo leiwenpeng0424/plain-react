@@ -1,7 +1,7 @@
 module.exports = {
   rootDir: process.cwd(),
   roots: ['<rootDir>/packages/'],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   moduleFileExtensions: ['js', 'json', 'node', 'ts'],
   transform: {
     '^.+\\.js$': 'babel-jest',

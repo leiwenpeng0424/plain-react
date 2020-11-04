@@ -109,7 +109,7 @@
     "no-extra-label": "error",
     "no-extra-parens": "off",
     "no-floating-decimal": "off",
-    "no-implicit-coercion": [
+    "no-implicit-coercion": [p
       "error",
       {
         "boolean": false,
@@ -170,12 +170,7 @@
     "no-undefined": "off",
     "no-underscore-dangle": "off",
     "no-unmodified-loop-condition": "error",
-    "no-unneeded-ternary": [
-      "error",
-      {
-        "defaultAssignment": true
-      }
-    ],
+    "no-unneeded-ternary": ["error", { "defaultAssignment": true }],
     "no-unsafe-finally": "error",
     "no-unused-expressions": "off",
     "no-unused-vars": "off",
@@ -193,12 +188,7 @@
     "no-with": "error",
     "object-curly-newline": "off",
     "object-curly-spacing": ["error", "always"],
-    "object-property-newline": [
-      "error",
-      {
-        "allowMultiplePropertiesPerLine": true
-      }
-    ],
+    "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
     "object-shorthand": "off",
     "one-var": "off",
     "one-var-declaration-per-line": "off",
@@ -212,13 +202,7 @@
     "prefer-spread": "off",
     "prefer-template": "off",
     "quote-props": "off",
-    "quotes": [
-      "warn",
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
+    "quotes": ["warn", "single", { "avoidEscape": true }],
     "radix": "off",
     "require-jsdoc": "off",
     "require-yield": "error",
@@ -231,13 +215,7 @@
     "space-before-function-paren": ["error", { "anonymous": "always", "named": "never" }],
     "space-in-parens": "off",
     "space-infix-ops": "off",
-    "space-unary-ops": [
-      "error",
-      {
-        "nonwords": false,
-        "words": false
-      }
-    ],
+    "space-unary-ops": ["error", { "nonwords": false, "words": false }],
     "strict": "off",
     "template-curly-spacing": "error",
     "unicode-bom": ["error", "never"],
