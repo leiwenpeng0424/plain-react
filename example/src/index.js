@@ -1,23 +1,21 @@
-import { render } from '@plain-react/dom';
-import { createElement } from '@plain-react/core';
+import { createElement, render, patch } from '@plain-react/virtual-dom';
 
-render(
-  document.getElementById('app'),
+const node = createElement('div', {}, undefined, [
   createElement(
-    'div',
+    'h1',
     {
-      style: {
-        color: 'cyan',
-        textAlign: 'center',
-        width: 400 * 0.618,
-        height: 400
-      },
-      children: []
+      classes: { a: true, b: true, c: true, d: true },
+      id: 'aaa'
     },
-    [
-      createElement('p', { style: { color: 'yellow' } }),
-      createElement('p', { style: { color: 'blue' } }),
-      createElement('p', { style: { color: 'red' } })
-    ]
-  )
-);
+    undefined,
+    ['Hello World']
+  ),
+  createElement('h2', {}, undefined, ['Show Me The Money!!!'])
+]);
+
+render(node);
+patch(node);
+
+console.log(node);
+
+document.body.appendChild(node.elem);

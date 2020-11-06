@@ -1,0 +1,7 @@
+{
+  "name": "@plain-react/virtual-dom",
+  "version": "1.0.0",
+  "main": "./npm/index.js",
+  "dependencies": {},
+  "types": "types/index.d.ts"
+}

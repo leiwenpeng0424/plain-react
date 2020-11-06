@@ -12,6 +12,7 @@
     "@plain-react/core": "link:../packages/core",
     "@plain-react/dom": "link:../packages/dom",
     "@plain-react/event": "link:../packages/event",
+    "@plain-react/virtual-dom": "link:../packages/virtual-dom",
     "babel-loader": "~8.1.0",
     "html-webpack-plugin": "~4.5.0",
     "webpack": "4.32.2",
