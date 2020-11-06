@@ -39,4 +39,4 @@ function render(node: VNode, opts: RenderOptions = {}): VNode;
 
 function patch(node: VNode): void;
 
-export { createElement, render, patch };
+export { createElement, render, patch, diff };

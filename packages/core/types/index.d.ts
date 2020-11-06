@@ -1,6 +1,9 @@
 export interface VNode {
   tag: string;
-  attrs: { [index: keyof HTMLElement]: string; children?: VNode | Array<VNode> };
+  attrs: {
+    [index: keyof HTMLElement]: string;
+    children?: VNode | Array<VNode>;
+  };
   children: Array<string | VNode>;
   [index: string]: unknown;
 }
