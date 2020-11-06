@@ -26,8 +26,7 @@
   },
   "lint-staged": {
     "packages/**/*.ts": [
-      "prettier packages/**/*.ts --write",
-      "eslint"
+      "prettier packages/**/*.ts --write"
     ]
   },
   "devDependencies": {

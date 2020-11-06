@@ -1,8 +1,7 @@
 {
-  "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": 2020,
-    "project": "./tsconfig.*.json",
+    "project": ["tsconfig.json", "tsconfig.*.json"],
     "sourceType": "module"
   },
   "ignorePatterns": ["**/npm", "**/dist", "**/build"],
@@ -13,13 +12,17 @@
     "commonjs": true,
     "worker": true
   },
-  "extends": ["prettier"],
   "overrides": [
     {
-      "files": ["**/*.ts"],
       "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint/eslint-plugin"],
-      "extends": ["plugin:@typescript-eslint/recommended"]
+      "files": ["**/*.ts"],
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        // 类型检查
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "rules": {}
     }
   ],
   "rules": {
@@ -109,7 +112,7 @@
     "no-extra-label": "error",
     "no-extra-parens": "off",
     "no-floating-decimal": "off",
-    "no-implicit-coercion": [p
+    "no-implicit-coercion": [
       "error",
       {
         "boolean": false,

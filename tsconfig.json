@@ -3,8 +3,13 @@
     "module": "commonjs",
     "target": "es5",
     "lib": ["DOM", "ESNext"],
+    "pretty": true,
+    "strict": true,
+    "allowJs": true,
+    "alwaysStrict": true,
     "skipLibCheck": true,
-    "pretty": true
+    "importHelpers": false,
+    "strictNullChecks": true
   },
   "exclude": ["node_modules"]
 }

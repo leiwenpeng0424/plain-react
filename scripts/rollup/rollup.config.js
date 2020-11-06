@@ -8,7 +8,7 @@ const minimist = require('minimist');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const replace = require('@rollup/plugin-replace');
 const json = require('@rollup/plugin-json');
-const sucrase = require('@rollup/plugin-sucrase');
+// const sucrase = require('@rollup/plugin-sucrase');
 const ts = require('@rollup/plugin-typescript');
 const commonjs = require('@rollup/plugin-commonjs');
 const { terser } = require('rollup-plugin-terser');
@@ -98,7 +98,6 @@ function main() {
   const plugins = [
     json(),
     commonjs({}),
-    sucrase({ transforms: ['typescript'] }),
     replace({ __DEV__: isDevelopment }),
     alias({}),
     nodeResolve({ extensions: ['.js', '.ts', '.mjs'] }),
@@ -108,6 +107,8 @@ function main() {
       // avoiding Rollup `sourcemap` warning
       tsconfig: isProduction ? './tsconfig.dev.json' : './tsconfig.prod.json'
     })
+
+    // sucrase({ transforms: ['typescript'] }),
   ];
 
   if (isProduction) {

@@ -1,13 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "sourceMap": false,
-    "alwaysStrict": true,
-    "strict": true,
-    "allowJs": false,
-    "baseUrl": ".",
-    "importHelpers": false,
-    "skipLibCheck": true,
-    "strictNullChecks": true
+    "sourceMap": false
   }
 }
