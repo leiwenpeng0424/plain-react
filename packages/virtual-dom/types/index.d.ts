@@ -1,8 +1,8 @@
 export interface VNodeData {
-  id: string;
-  key: string | number;
-  style: Record<string, string>;
-  classes: Record<string, boolean>;
+  id?: string;
+  key?: string | number;
+  style?: Record<string, string>;
+  classes?: Record<string, boolean>;
   [index: string]: any;
 }
 
@@ -17,6 +17,19 @@ export type VNode = {
 export type RenderOptions = {
   doc?: Document;
   target?: Node;
+};
+
+export type EffectTypes = 'ADD' | 'REMOVE' | 'UPDATE' | 'REORDER';
+
+export type Effect = {
+  type: EffectTypes;
+  [index: string]: any;
+};
+
+export type Patch = {
+  node: VNode;
+  effects: Effect[];
+  [index: string]: any;
 };
 
 export type VNodeChildren = (

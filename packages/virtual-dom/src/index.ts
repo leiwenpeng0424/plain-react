@@ -1,4 +1,5 @@
 import { RenderOptions, VNode, VNodeChildren, VNodeData } from '../types';
+import diff from './diff';
 
 function createElement(
   tagName?: string,
@@ -109,4 +110,4 @@ function patch(node: VNode): VNode {
   return node;
 }
 
-export { createElement, render, patch };
+export { createElement, render, patch, diff };
