@@ -1,21 +1,34 @@
-import { createElement, render, patch } from '@plain-react/virtual-dom';
+import {
+  createElement,
+  render,
+  patch,
+  diff,
+  commit
+} from '@plain-react/virtual-dom';
 
-const node = createElement('div', {}, undefined, [
-  createElement(
-    'h1',
-    { classes: { a: true, b: true, c: true, d: true }, id: 'aaa' },
-    undefined,
-    ['Hello World']
-  ),
-  createElement('h2', {}, undefined, ['Show Me The Money!!!']),
-  createElement('div', {}, undefined, [
-    createElement('h3', {}, undefined, ['lwp'])
+const node1 = createElement('div', {}, undefined, [
+  createElement('h1', { key: 1 }, undefined, ['Hello World']),
+  createElement('h2', { key: 2 }, undefined, ['Show Me The Money!!!']),
+  createElement('div', { key: 3 }, undefined, [
+    createElement('h3', { key: 4 }, undefined, ['lwp'])
   ])
 ]);
 
-render(node);
-patch(node);
+const node2 = createElement('div', {}, undefined, [
+  createElement('h1', { key: 1 }, undefined, ['Hello World']),
+  createElement('h2', { key: 2 }, undefined, ['Show Me The Money!!!']),
+  createElement('div', { key: 3 }, undefined, [
+    createElement('h3', { key: 4 }, undefined, ['leiwenpeng'])
+  ])
+]);
 
-console.log(node);
+render(node1);
+patch(node1);
 
-document.body.appendChild(node.elem);
+document.body.appendChild(node1.elem);
+
+setTimeout(() => {
+  const patch = diff(node2, node1);
+  commit(patch);
+  console.log(patch);
+}, 1000);

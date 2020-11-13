@@ -9,20 +9,16 @@ let node: VNode;
 let bNode: VNode;
 
 beforeEach(() => {
-  node = createElement('div', { props: {} }, undefined, [
-    createElement('div', { props: {}, key: 1 }, undefined, []),
-    createElement('div', { props: {}, key: 2 }, undefined, []),
-    createElement('div', { props: {}, key: 3 }, undefined, [])
+  node = createElement('div', {}, undefined, [
+    createElement('div', { key: 1 }, undefined, []),
+    createElement('div', { key: 2 }, undefined, []),
+    createElement('div', { key: 3 }, undefined, [])
   ]);
 
-  bNode = createElement('div', { props: {} }, undefined, [
-    createElement('div', { props: {}, key: 1 }, undefined, []),
-    createElement('div', { props: {}, key: 2 }, undefined, []),
-    createElement('div', { props: {}, key: 4 }, undefined, [
-      '123',
-      '456',
-      '789'
-    ])
+  bNode = createElement('div', {}, undefined, [
+    createElement('div', { key: 1 }, undefined, []),
+    createElement('div', { key: 2 }, undefined, []),
+    createElement('div', { key: 4 }, undefined, ['123', '456', '789'])
   ]);
 });
 
@@ -38,10 +34,8 @@ test('test render && patch', () => {
 });
 
 test('diff node', () => {
-  const treea = render(node);
-  const treeb = render(bNode);
-
-  const patch = diff(treea, treeb);
+  const treeA = render(node);
+  const patch = diff(treeA, bNode);
 
   console.log('patch ->', patch);
 });

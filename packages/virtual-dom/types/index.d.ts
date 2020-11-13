@@ -22,7 +22,9 @@ export type RenderOptions = {
 export type EffectTypes = 'ADD' | 'REMOVE' | 'UPDATE' | 'REORDER';
 
 export type Effect = {
+  node: VNode;
   type: EffectTypes;
+  data: Record<string, any>;
   [index: string]: any;
 };
 
@@ -52,4 +54,8 @@ function render(node: VNode, opts: RenderOptions = {}): VNode;
 
 function patch(node: VNode): void;
 
-export { createElement, render, patch, diff };
+function diff(newTree: VNode, oldTree: VNode): Patch;
+
+function commit(patch: Patch): void;
+
+export { createElement, render, patch, diff, commit };
