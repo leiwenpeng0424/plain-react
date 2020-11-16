@@ -7,9 +7,9 @@ export interface VNodeData {
 }
 
 export type VNode = {
-  tagName?: string;
+  type: symbol;
+  tagName?: string | VNode;
   data?: VNodeData;
-  text?: string;
   elem?: Node | Element;
   children?: VNodeChildren;
 };
@@ -22,15 +22,21 @@ export type RenderOptions = {
 export type EffectTypes = 'ADD' | 'REMOVE' | 'UPDATE' | 'REORDER';
 
 export type Effect = {
-  node: VNode;
-  type: EffectTypes;
+  type: symbol;
   data: Record<string, any>;
   [index: string]: any;
 };
 
-export type Patch = {
-  node: VNode;
+export type Updater = {
   effects: Effect[];
+  node: VNode;
+  prev?: Updater;
+  next?: Updater;
+};
+
+export type Patch = {
+  root: VNode;
+  updater: Updater;
   [index: string]: any;
 };
 
@@ -43,19 +49,16 @@ export type VNodeChildren = (
   | null
 )[];
 
-function createElement(
-  tagName?: string,
-  data?: VNodeData,
-  text?: string,
-  children?: VNodeChildren
+export function createElement(tagName: string | VNode): VNode;
+export function createElement(tagName: string | VNode, data: VNodeData): VNode;
+export function createElement(
+  tagName: string | VNode,
+  children: VNodeChildren
+): VNode;
+export function createElement(
+  tagName: string | VNode,
+  data: VNodeData,
+  children: VNodeChildren
 ): VNode;
 
-function render(node: VNode, opts: RenderOptions = {}): VNode;
-
-function patch(node: VNode): void;
-
-function diff(newTree: VNode, oldTree: VNode): Patch;
-
-function commit(patch: Patch): void;
-
-export { createElement, render, patch, diff, commit };
+export function render(node: VNode): VNode;
