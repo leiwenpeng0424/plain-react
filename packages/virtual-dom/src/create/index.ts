@@ -1,5 +1,5 @@
-import { VNode, VNodeChildren, VNodeData } from '../../types';
-import { createNode } from './createNode';
+import {VNode, VNodeChildren, VNodeData} from '../../types';
+import {createNode} from './createNode';
 
 export default function createElement(
   tagName: string | VNode,

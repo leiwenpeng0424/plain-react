@@ -16,7 +16,7 @@ export default function diff(oldNode: VNode, newNode: VNode): Patch {
 function diffNode(newNode: VNode, update: Updater): Updater {
   const {node} = update;
 
-  update.next = createUpdater(newNode);
+  update.next = createUpdater(node);
   if (node.type !== newNode.type) {
     // 如果两个节点的类型都不一样了,就直接重新渲染,不需要再往下比对了,就认为整个dom数都已经变化了。
     // data也不需要在比对了。

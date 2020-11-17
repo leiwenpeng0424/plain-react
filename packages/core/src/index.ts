@@ -1,4 +1,4 @@
-import { VNode } from '../types';
+import {VNode} from '../types';
 
 function createElement(
   element: string,
@@ -21,4 +21,4 @@ function createElement(
   };
 }
 
-export { createElement };
+export {createElement};

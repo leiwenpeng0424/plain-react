@@ -1,6 +1,6 @@
-import { VTree } from '@plain-react/core';
+import {VTree} from '@plain-react/core';
 
-function patch(element: string, attrs: { [index: string]: string }): Node {
+function patch(element: string, attrs: {[index: string]: string}): Node {
   return document.createElement(element, {});
 }
 
@@ -21,6 +21,6 @@ function render(domElement: Element, elements: VTree): void {
   // domElement.append(domFragment);
 }
 
-export { render };
+export {render};
 
 // http://localhost:8080/#/featureProcess/creation/createFeatures/285

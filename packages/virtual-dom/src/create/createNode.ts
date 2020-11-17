@@ -1,4 +1,4 @@
-import { VNode, VNodeChildren, VNodeData } from '../../types';
+import {VNode, VNodeChildren, VNodeData} from '../../types';
 import NodeTypes from '../const/NodeTypes';
 
 export function createNode(
@@ -22,7 +22,7 @@ export function createNode(
     ) {
       return {
         type: NodeTypes.text,
-        data: { text: child }
+        data: {text: child}
       };
     }
 
