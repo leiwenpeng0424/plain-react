@@ -1,3 +1,2 @@
 // element type
-
 export default {};
