@@ -1,11 +1,11 @@
-import { VNode } from '../../types';
-import { doc as getDoc } from './dom-util';
+import {VNode} from '../../types';
+import {doc as getDoc} from './dom-util';
 import NodeTypes from '../const/NodeTypes';
 
 const doc = getDoc();
 
 export default function render(node: VNode): VNode {
-  const { children, tagName, type, data } = node;
+  const {children, tagName, type, data} = node;
 
   let elem;
 

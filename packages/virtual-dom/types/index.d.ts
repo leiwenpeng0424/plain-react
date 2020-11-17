@@ -9,7 +9,7 @@ export interface VNodeData {
 export type VNode = {
   type: symbol;
   tagName?: string | VNode;
-  data?: VNodeData;
+  data: VNodeData;
   elem?: Node | Element;
   children?: VNodeChildren;
 };
@@ -62,3 +62,4 @@ export function createElement(
 ): VNode;
 
 export function render(node: VNode): VNode;
+export function diff(a: VNode, b: VNode): Patch;
