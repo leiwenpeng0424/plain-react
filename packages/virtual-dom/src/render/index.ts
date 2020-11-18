@@ -36,10 +36,7 @@ export default function render(node: VNode): VNode {
   return node;
 }
 
-function renderChildren(
-  parent: Node | Element | undefined,
-  child: VNode
-): void {
+function renderChildren(parent: Node | Element | undefined, child: VNode): void {
   if (!parent) {
     // 向上查找parent？
   } else {

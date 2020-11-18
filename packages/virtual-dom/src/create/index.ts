@@ -23,9 +23,7 @@ export default function createElement(
     data = {};
   } else {
     if (Array.isArray(data)) {
-      throw new TypeError(
-        'expect data to be an Object, instead of ' + typeof data
-      );
+      throw new TypeError('expect data to be an Object, instead of ' + typeof data);
     }
 
     try {
@@ -33,9 +31,7 @@ export default function createElement(
         children = children.concat(data.children as VNodeChildren);
       }
     } catch (e) {
-      throw new TypeError(
-        'expect data to be a Array or Object, instead of ' + typeof data
-      );
+      throw new TypeError('expect data to be a Array or Object, instead of ' + typeof data);
     }
   }
 
