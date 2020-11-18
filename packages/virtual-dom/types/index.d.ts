@@ -3,28 +3,21 @@ export interface VNodeData {
   key?: string | number;
   style?: Record<string, string>;
   classes?: Record<string, boolean>;
-  [index: string]: any;
+  [index: string]: unknown;
 }
 
 export type VNode = {
   type: symbol;
-  tagName?: string | VNode;
   data: VNodeData;
-  elem?: Node | Element;
-  children?: VNodeChildren;
+  children: VNodeChildren;
+  elem?: Node;
+  tagName?: string | VNode;
 };
-
-export type RenderOptions = {
-  doc?: Document;
-  target?: Node;
-};
-
-export type EffectTypes = 'ADD' | 'REMOVE' | 'UPDATE' | 'REORDER';
 
 export type Effect = {
   type: symbol;
-  data: Record<string, any>;
-  [index: string]: any;
+  data: Record<string, unknown>;
+  [index: string]: unknown;
 };
 
 export type Updater = {
@@ -37,24 +30,15 @@ export type Updater = {
 export type Patch = {
   root: VNode;
   updater: Updater;
-  [index: string]: any;
+  [index: string]: unknown;
 };
 
-export type VNodeChildren = (
-  | VNode
-  | string
-  | number
-  | boolean
-  | undefined
-  | null
-)[];
+export type PossibleChildren = (VNode | string | number | boolean | undefined | null)[];
+export type VNodeChildren = VNode[];
 
 export function createElement(tagName: string | VNode): VNode;
 export function createElement(tagName: string | VNode, data: VNodeData): VNode;
-export function createElement(
-  tagName: string | VNode,
-  children: VNodeChildren
-): VNode;
+export function createElement(tagName: string | VNode, children: VNodeChildren): VNode;
 export function createElement(
   tagName: string | VNode,
   data: VNodeData,

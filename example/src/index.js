@@ -1,28 +1,17 @@
-import {createElement, render, diff} from '@plain-react/virtual-dom';
+import { createElement, render, diff } from '@plain-react/virtual-dom';
 
 const node1 = createElement('div', {}, [
-  createElement('h1', ['Hello World']),
-  createElement('h2', ['Show Me The Money!!!'])
+  createElement('h1', { key: 'key1' }, ['Hello World']),
+  createElement('h2', { key: 'key2' }, ['Hello World']),
+  createElement('h3', { key: 'key3' }, ['Hello World']),
+  createElement('h4', { key: 'key4' }, ['Hello World']),
 ]);
 
 const node2 = createElement('div', [
-  createElement('h1', ['Hello World']),
-  createElement('h2', ['Show Me The Money!!!']),
-  createElement('div', [
-    createElement('div', {key: 2}, [
-      createElement('h1', ['Hello World']),
-      createElement('h2', ['Show Me The Money!!!']),
-      createElement('div', [
-        createElement('h3', ['lwp']),
-        createElement('div', {}, [
-          createElement('h1', ['Hello World']),
-          createElement('h2', ['Show Me The Money!!!']),
-          createElement('div', [createElement('h3', ['leiwenpeng'])])
-        ])
-      ])
-    ]),
-    createElement('h3', {key: 1}, ['leiwenpeng'])
-  ])
+  createElement('h2', { key: 'key2' }, ['Hello World']),
+  createElement('h1', { key: 'key1' }, ['Hello World']),
+  createElement('h4', { key: 'key4' }, ['Hello World']),
+  createElement('h3', { key: 'key5' }, ['Hello World']),
 ]);
 
 render(node1);
