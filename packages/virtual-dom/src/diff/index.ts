@@ -19,7 +19,7 @@ function diffNode(newNode: VNode, update: Updater): Updater {
   update.next = createUpdater(node);
   if (node.type !== newNode.type) {
     // 如果两个节点的类型都不一样了,就直接重新渲染,不需要再往下比对了,就认为整个dom数都已经变化了。
-    // data也不需要在比对了。
+    // data也不需要再比对了。
     update.effects.push({type: PatchTypes.remove, data: {node}});
     update.effects.push({type: PatchTypes.add, data: {node: newNode}});
   } else {
