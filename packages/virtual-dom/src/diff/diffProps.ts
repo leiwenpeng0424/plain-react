@@ -26,6 +26,5 @@ export default function diffProps(node: VNode, update: Updater): void {
       }
     }
   }
-
   return;
 }
