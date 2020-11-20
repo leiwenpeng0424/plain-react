@@ -1,3 +1,5 @@
+// diff algo
+
 import {Patch, Updater, VNode, VNodeChildren} from '../../types';
 import PatchTypes from '../const/PatchTypes';
 import createUpdater from './createUpdater';
@@ -101,15 +103,12 @@ function sortChildren(
         newChildren.push(null);
       }
     }
-
     idx++;
   }
 
   if (idx < bLen) idx = 0;
-
   while (idx < bLen) {
     const item = b[idx];
-
     if (item.data.key) {
       if (!keyedA.keys.has(item.data.key)) {
         newChildren.push(item);
@@ -122,7 +121,6 @@ function sortChildren(
 
     idx++;
   }
-
   return result;
 }
 
