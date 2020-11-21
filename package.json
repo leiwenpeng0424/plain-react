@@ -63,8 +63,8 @@
     "lint": "eslint --fix",
     "test": "jest -c='./scripts/jest/jest.config.js' --passWithNoTests",
     "prettier": "prettier --write",
-    "build:dev": "rollup -c='./scripts/rollup/rollup.config.js' --development",
-    "build:prod": "rollup -c='./scripts/rollup/rollup.config.js' --production",
-    "dev": "rollup -c='./scripts/rollup/rollup.config.js'  --watch --development"
+    "build:dev": "rollup -c ./scripts/rollup/rollup.config.js --development",
+    "build:prod": "rollup -c ./scripts/rollup/rollup.config.js --production",
+    "dev": "rollup -c ./scripts/rollup/rollup.config.js --watch --development"
   }
 }
