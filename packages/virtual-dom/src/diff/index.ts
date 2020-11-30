@@ -1,5 +1,3 @@
-// diff algo
-
 import {Patch, Updater, VNode, VNodeChildren} from '../../types';
 import PatchTypes from '../const/PatchTypes';
 import createUpdater from './createUpdater';
@@ -31,7 +29,7 @@ function diffNode(newNode: VNode, update: Updater): Updater {
 
 function diffChildren(newNode: VNode, oldNode: VNode, update: Updater): void {
   const a = newNode.children;
-  const orderedSet = sortChildren(a, oldNode.children, update);
+  const orderedSet = sortChildren(a, oldNode.children);
   console.log('order output', orderedSet.children, a);
   return;
 }
@@ -49,8 +47,7 @@ type Move = {
  */
 function sortChildren(
   a: VNodeChildren,
-  b: VNodeChildren,
-  update: Updater
+  b: VNodeChildren
 ): {moves: Move; children: (VNode | null)[]} {
   const newChildren: (VNode | null)[] = [];
   const moves: Move = {
@@ -121,6 +118,9 @@ function sortChildren(
 
     idx++;
   }
+
+  // 需要在这儿对新的排了序和没有排序的children进行对比，找出删除和插入的部份。
+
   return result;
 }
 
