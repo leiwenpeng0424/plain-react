@@ -74,7 +74,7 @@
     //    "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": "off",
     "keyword-spacing": "off",
-    "linebreak-style": ["warn", "windows"],
+    "linebreak-style": ["off", "windows"],
     "lines-around-comment": "off",
     "max-depth": "off",
     "max-len": "off",
