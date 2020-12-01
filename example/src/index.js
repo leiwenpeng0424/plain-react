@@ -1,4 +1,4 @@
-import {createElement, render, diff} from '@plain-react/virtual-dom';
+import {createElement} from '@plain-react/virtual-dom';
 
 const node1 = createElement('div', {}, [
   createElement('h1', {key: '1'}, ['Hello World']),

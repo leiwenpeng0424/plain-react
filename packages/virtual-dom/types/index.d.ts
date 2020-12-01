@@ -1,30 +1,21 @@
-export interface VNodeData {
-  id?: string;
-  key?: string | number;
-  style?: Record<string, string>;
-  classes?: Record<string, boolean>;
-  [index: string]: unknown;
-}
-
 export type VNode = {
-  type: symbol;
-  data: VNodeData;
-  children: VNodeChildren;
-  elem?: Node;
-  tagName?: string | VNode;
+  name: string;
+  [index: string]: unknown;
 };
 
-export type PossibleChildren = (VNode | string | number | boolean | undefined | null)[];
+export type VNodeData = {
+  key?: string | number;
+  [index: string]: unknown;
+};
+
 export type VNodeChildren = VNode[];
 
-export function createElement(tagName: string | VNode): VNode;
-export function createElement(tagName: string | VNode, data: VNodeData): VNode;
-export function createElement(tagName: string | VNode, children: VNodeChildren): VNode;
+// 不同的函数定义
+export function createElement(name: string): VNode;
+export function createElement(name: string, data: VNodeData): VNode;
+export function createElement(name: string, children: VNodeChildren): VNode;
 export function createElement(
-  tagName: string | VNode,
+  name: string | VNode,
   data: VNodeData,
   children: VNodeChildren
 ): VNode;
-
-export function render(node: VNode): VNode;
-export function diff(a: VNode, b: VNode): Patch;

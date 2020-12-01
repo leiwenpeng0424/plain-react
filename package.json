@@ -3,7 +3,6 @@
   "license": "MIT",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "author": {
     "name": "ray",
     "email": "leiwenpeng1994@outlook.com"
@@ -18,18 +17,6 @@
     "packages/*",
     "shared/*"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    },
-    "skipCI": true
-  },
-  "lint-staged": {
-    "packages/**/*.ts": [
-      "prettier packages/**/*.ts --write",
-      "eslint"
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "~7.12.1",
     "@babel/core": "~7.12.3",
@@ -44,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "~4.6.0",
     "@typescript-eslint/parser": "~4.6.0",
     "babel-jest": "~26.6.1",
+    "chalk": "^4.1.0",
     "eslint": "~7.12.1",
     "eslint-config-prettier": "~6.14.0",
     "eslint-plugin-prettier": "~3.1.4",
@@ -61,10 +49,16 @@
   },
   "scripts": {
     "lint": "eslint --fix",
-    "test": "jest -c='./scripts/jest/jest.config.js' --passWithNoTests",
+    "test": "node ./scripts/jest/runJest.js",
     "prettier": "prettier --write",
     "build:dev": "rollup -c ./scripts/rollup/rollup.config.js --development",
     "build:prod": "rollup -c ./scripts/rollup/rollup.config.js --production",
     "dev": "rollup -c ./scripts/rollup/rollup.config.js --watch --development"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.ts$": "ts-jest"
+    }
   }
 }
