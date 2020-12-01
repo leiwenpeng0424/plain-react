@@ -14,25 +14,6 @@ export type VNode = {
   tagName?: string | VNode;
 };
 
-export type Effect = {
-  type: symbol;
-  data: Record<string, unknown>;
-  [index: string]: unknown;
-};
-
-export type Updater = {
-  effects: Effect[];
-  node: VNode;
-  prev?: Updater;
-  next?: Updater;
-};
-
-export type Patch = {
-  root: VNode;
-  updater: Updater;
-  [index: string]: unknown;
-};
-
 export type PossibleChildren = (VNode | string | number | boolean | undefined | null)[];
 export type VNodeChildren = VNode[];
 
