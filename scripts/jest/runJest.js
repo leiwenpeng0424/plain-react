@@ -1,6 +1,6 @@
 // run jest
 
-const {spawn} = require('child_process');
+const spawn = require('cross-spawn');
 const minimist = require('minimist');
 const chalk = require('chalk');
 const {existsSync} = require('fs');
@@ -18,9 +18,10 @@ if (!scope || existsSync(resolve('packages', scope, 'packages.json'))) {
       'Specified Scope Is Unavailable Or Not Exist, [--scope]: ' +
       chalk.yellow(scope)
   );
-  process.exit(1);
+  throw new Error();
 }
 
+// Only execute the test case inside specified scope
 const defaultArgs = {
   colors: true,
   env: 'jsdom',

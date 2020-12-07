@@ -1,12 +1,12 @@
 {
-  "name": "@plain-react/core",
-  "version": "0.0.0",
-  "main": "npm/index.js",
-  "types": "types/index.d.ts",
-  "files": [
-    "npm",
-    "dist",
-    "types"
-  ],
-  "dependencies": {}
+    "name": "@plain-react/core",
+    "version": "0.0.0",
+    "main": "npm/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "npm",
+        "dist",
+        "types"
+    ],
+    "dependencies": {}
 }

@@ -1,3 +1,3 @@
 export default function event() {
-  return 'event';
+    return 'event';
 }
