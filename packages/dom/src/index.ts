@@ -1,26 +1,9 @@
-import {VTree} from '@plain-react/core';
+import {createRootNode, TreeNode, TreeRoot} from '@plain-react/core';
 
-function patch(element: string, attrs: {[index: string]: string}): Node {
-    return document.createElement(element, {});
+export default function render(node: TreeNode, dom: Element): void {
+    renderRoot(node, dom);
 }
 
-function render(domElement: Element, elements: VTree): void {
-    console.log('-->', elements);
-
-    const domFragment = new DocumentFragment();
-    const node = elements;
-
-    // do {
-    //   if (typeof node === 'string') {
-    //     domFragment.append(node);
-    //   } else {
-    //     domFragment.append(patch(node.tag, node.attrs));
-    //   }
-    // } while (node.children);
-    //
-    // domElement.append(domFragment);
+function renderRoot(node: TreeNode, dom: Element): TreeRoot {
+    return createRootNode(node, dom);
 }
-
-export {render};
-
-// http://localhost:8080/#/featureProcess/creation/createFeatures/285

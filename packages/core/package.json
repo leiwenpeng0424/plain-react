@@ -1,10 +1,9 @@
 {
     "name": "@plain-react/core",
     "version": "0.0.0",
-    "main": "npm/index.js",
+    "main": "dist/core.development.cjs.js",
     "types": "types/index.d.ts",
     "files": [
-        "npm",
         "dist",
         "types"
     ],
