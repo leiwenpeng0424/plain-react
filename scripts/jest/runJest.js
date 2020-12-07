@@ -1,4 +1,4 @@
-// run jest
+// run jest test-suits
 
 const spawn = require('cross-spawn');
 const minimist = require('minimist');

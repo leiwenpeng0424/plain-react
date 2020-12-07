@@ -1,4 +1,4 @@
-import {DocRelatedOptions, ElementProperty, VNodeChildren} from '../types';
+import {DocRelatedOptions, ElementProperty} from '../types';
 
 export function createElem(
     tagName: keyof HTMLElementTagNameMap,
@@ -17,7 +17,7 @@ export function createElem(
     for (const property in props) {
         if (Object.prototype.hasOwnProperty.call(props, property)) {
             addAttrs(elem, property, props[property]);
-        }
+		}
     }
 
     return elem;
@@ -28,6 +28,7 @@ export function addAttrs(elem: Element, property: string, value: string, namespa
         ? elem.setAttributeNS(namespace, property, value)
         : elem.setAttribute(property, value);
 }
+
 
 export function removeAttrs(elem: Element, property: string, namespace?: string): void {
     namespace ? elem.removeAttributeNS(namespace, property) : elem.removeAttribute(property);
@@ -45,20 +46,4 @@ export function updateAttrs(
 
 export function createChildFragment(opts: DocRelatedOptions): DocumentFragment {
     return opts.doc.createDocumentFragment();
-}
-
-export function createChildren(
-    child: VNodeChildren,
-    parent: Element,
-    opts: DocRelatedOptions
-): void {
-    const childFragment = createChildFragment(opts);
-
-    if (child && child.length > 0) {
-        let childIndex = 0;
-
-        while (childIndex < child.length) {
-            childIndex++;
-        }
-    }
 }
