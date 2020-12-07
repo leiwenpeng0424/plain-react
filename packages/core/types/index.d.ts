@@ -1,20 +1,16 @@
-export interface VNode {
-    tag: string;
-    attrs: {
-        [index: keyof HTMLElement]: string;
-        children?: VNode | Array<VNode>;
-    };
-    children: Array<string | VNode>;
+export type TreeNode = {name: string; key: string | number; [index: string]: unknown};
+export type TreeRoot = {container: Element; root: TreeNode};
+export type TreeNodeChildren = TreeNode[] | undefined;
+export type Props = {
+    attrs: Record<string, unknown>;
     [index: string]: unknown;
-}
+};
 
-export type VTree = {
-    pre: VNode;
-    next: VNode;
-} & VNode;
+export function createTreeNode(
+    name: string,
+    key: string | number,
+    props: Props,
+    children: TreeNodeChildren
+): TreeNode;
 
-export function createElement(
-    element: unknown,
-    props: {[index: string]: unknown},
-    children?: VNode[]
-): VNode;
+export function createRootNode(node: TreeNode, dom: Element): TreeRoot;

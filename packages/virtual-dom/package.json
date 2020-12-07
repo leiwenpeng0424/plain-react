@@ -1,8 +1,0 @@
-{
-    "name": "@plain-react/virtual-dom",
-    "version": "1.0.0",
-    "main": "./dist/virtual-dom.development.cjs.js",
-    "browser": "./dist/virtual-dom.development.umd.js",
-    "dependencies": {},
-    "types": "types/index.d.ts"
-}
