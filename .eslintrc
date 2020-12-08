@@ -210,7 +210,7 @@
     "require-jsdoc": "off",
     "require-yield": "error",
     "rest-spread-spacing": "error",
-    "semi": ["error", "always"],
+    "semi": ["warn", "always"],
     "semi-spacing": "off",
     "sort-imports": "off",
     "sort-vars": "off",

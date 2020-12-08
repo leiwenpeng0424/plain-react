@@ -1,0 +1,63 @@
+import {createWhile} from 'typescript';
+import {Props, TreeElementNode, TreeNode, TreeNodeChildren, TreeRoot} from '../types';
+
+export function createTreeNode(
+    name: string,
+    key: string | number,
+    props: Props,
+    children: TreeNodeChildren
+): TreeNode {
+    return {
+        name,
+        key,
+        props,
+        children
+    };
+}
+
+/**
+ * @function 创建RootNode
+ **/
+export function createRootNode(node: TreeNode, dom: Element): TreeRoot {
+    const root = {
+        container: dom
+    };
+
+    return {
+        root: node,
+        container: dom
+    };
+}
+
+// 将节点进行连接, 使用prev和next来指定上一级和下一级节点.
+function linkNodes(node: TreeNode, prev: TreeNode): TreeElementNode {
+    const currentLink = node as TreeElementNode;
+    let next, siblings;
+
+    if (currentLink.children && Array.isArray(currentLink.children)) {
+        next = currentLink.children[0] as TreeNode;
+        siblings = currentLink.children.slice(1);
+
+        if (siblings.length) {
+            next.siblings = siblings.map(function (sibling) {
+                return linkNodes(sibling, currentLink);
+            });
+        }
+    }
+
+    return createTreeElementNode(node, prev, next, siblings);
+}
+
+function createTreeElementNode(
+    node: TreeNode,
+    prev?: TreeNode,
+    next?: TreeNode,
+    siblings?: TreeNode[]
+): TreeElementNode {
+    return {
+        ...node,
+        prev,
+        next,
+        siblings
+    };
+}
