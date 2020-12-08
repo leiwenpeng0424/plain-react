@@ -39,5 +39,4 @@ export function createTreeNode(
 ): TreeNode;
 export function createTreeNode(name: string, key: string | number): TreeNode;
 export function createTreeNode(name: string): TreeNode;
-
 export function createTreeRoot(node: TreeNode, dom: Element): TreeRoot;
