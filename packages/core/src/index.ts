@@ -1,1 +1,1 @@
-export {createTreeRoot, createTreeNode} from './element';
+export {createTreeRootNode, createTreeNode, findRootNode} from './element';

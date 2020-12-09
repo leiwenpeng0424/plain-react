@@ -1,29 +1,25 @@
+export type NodeProps = {
+    state?: Record<string, string | number>;
+    attrs?: Record<string | number, string>;
+    events?: Record<string, () => void>;
+    children?: (TreeNode | TreeElementNode)[];
+};
 export type TreeNode = {
     name: string;
     key?: string | number;
     children?: TreeNodeChildren;
-    [index: string]: unknown;
+    props?: NodeProps;
 };
-// normal tree element node
 export type TreeElementNode = {
-    prev?: TreeElementNode | TreeRoot;
+    prev?: TreeElementNode | TreeElementRootNode;
     next?: TreeElementNode;
     elem?: Element;
     siblings?: TreeElementNode[];
-} & TreeNode;
-// root element node
-export type TreeElementRootNode = {
-    root: TreeRoot;
-} & TreeElementNode;
+    [index: string]: unknown;
+} & Omit<TreeNode, 'children'>;
 // tree root
-export type TreeRoot = {container: Element; rootNode: TreeElementNode};
 
 export type TreeNodeChildren = TreeNode[] | undefined;
-
-export type Props = {
-    attrs?: Record<string, unknown>;
-    [index: string]: unknown;
-};
 
 export function createTreeNode(
     name: string,
@@ -31,12 +27,7 @@ export function createTreeNode(
     props: Props,
     children: TreeNodeChildren
 ): TreeNode;
-export function createTreeNode(name: string, key: string | number, data: Props): TreeNode;
-export function createTreeNode(
-    name: stirng,
-    key: stirng | number,
-    children: TreeNodeChildren
-): TreeNode;
-export function createTreeNode(name: string, key: string | number): TreeNode;
-export function createTreeNode(name: string): TreeNode;
-export function createTreeRoot(node: TreeNode, dom: Element): TreeRoot;
+
+export function createTreeRootNode(node: TreeNode): TreeElementNode;
+
+export function findRootNode(node?: TreeElementNode): TreeElementNode;
