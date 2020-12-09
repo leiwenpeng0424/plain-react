@@ -107,3 +107,4 @@ dist
 .idea
 yarn.lock
 **/dist
+tags

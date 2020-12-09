@@ -68,8 +68,8 @@ function getSortedPackages(scope, ignore) {
         .reduce((arr, cur) => arr.concat(cur), [])
         .filter(
             (packageName) =>
-                matchPackageName(scopes, packageName, true) &&
-                !matchPackageName(ignores, packageName, false)
+                matchPackageName(scopes, packageName, true)
+                && !matchPackageName(ignores, packageName, false)
         );
 
     return batchPackages(packages);
@@ -88,7 +88,10 @@ function bundleNameByModuleResolution(name, moduleResolution) {
         suffix = 'production';
     }
 
-    return name.replace(/\.(?<ext>.+)$/, '.' + suffix + '.' + moduleResolution + '.$1');
+    return name.replace(
+        /\.(?<ext>.+)$/,
+        '.' + suffix + '.' + moduleResolution + '.$1'
+    );
 }
 
 function main() {
@@ -105,7 +108,9 @@ function main() {
             sourceMap: shouldUseSourcemaps,
             // https://stackoverflow.com/questions/63128597/how-to-get-rid-of-the-rollup-plugin-typescript-rollup-sourcemap-option-must
             // avoiding Rollup `sourcemap` warning
-            tsconfig: isProduction ? './tsconfig.dev.json' : './tsconfig.prod.json',
+            tsconfig: isProduction
+                ? './tsconfig.dev.json'
+                : './tsconfig.prod.json',
             exclude: ['**/__tests__/**', '**/npm/**', '**/dist/**']
         })
         // sucrase({ transforms: ['typescript'] }),
@@ -132,7 +137,10 @@ function main() {
                     format: resolution,
                     exports: 'auto',
                     sourcemap: shouldUseSourcemaps,
-                    name: resolution === 'umd' ? pack.name.replace(/\//, '') : undefined,
+                    name:
+                        resolution === 'umd'
+                            ? pack.name.replace(/\//, '')
+                            : undefined,
                     file: path.resolve(
                         cwd,
                         pack.name,
