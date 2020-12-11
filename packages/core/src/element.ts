@@ -52,7 +52,7 @@ function createTreeElementNode(
     if (next) {
         linkedNext = linkNodes(next, node, linkedSiblings);
     }
-    // TreelementNode对象不存在children字段
+
     delete node.children;
 
     return Object.assign(node, {
