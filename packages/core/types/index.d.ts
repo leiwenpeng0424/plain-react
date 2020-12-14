@@ -3,6 +3,7 @@ export type NodeProps = {
     attrs?: Record<string | number, string>;
     events?: Record<string, () => void>;
     children?: (TreeNode | TreeElementNode)[];
+    namespace?: string;
 };
 export type TreeNode = {
     name: string;

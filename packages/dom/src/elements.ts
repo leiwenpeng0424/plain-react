@@ -7,7 +7,7 @@ import {Attrbutes, DomEvents, TreeElementRootNode, TreeRoot} from '../types';
 let ownDoc: Document;
 let rootNode: TreeElementNode;
 
-export function createElement(node: TreeElementNode): TreeElementNode {
+export function createElement(node: TreeElementNode): Element {
     if (!rootNode) {
         rootNode = findTreeRootNode(node);
         ownDoc = ((rootNode as TreeElementRootNode).root as TreeRoot).container
@@ -15,15 +15,30 @@ export function createElement(node: TreeElementNode): TreeElementNode {
     }
 
     const {name, props} = node;
-    node.elem = createDomElement(name, undefined, props?.attrs, props?.events);
-    return node;
+    node.elem = createDomElement(
+        name,
+        props?.namespace,
+        props?.attrs,
+        props?.events
+    );
+    return node.elem;
+}
+export function createFragment(): DocumentFragment {
+    return ownDoc.createDocumentFragment();
+}
+
+export function appendToParent(
+    parent: Element | DocumentFragment | Document,
+    child: Element | DocumentFragment
+): void {
+    parent.appendChild(child);
 }
 
 function createDomElement(
     tagName: string,
     namespace: string | undefined,
     attrs: Attrbutes = {},
-    events: DomEvents = {} //
+    events: DomEvents = {}
 ): Element {
     let elem: Element;
     if (namespace) {

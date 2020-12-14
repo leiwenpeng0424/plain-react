@@ -1,7 +1,11 @@
 {
     "name": "@plain-react/dom",
-    "version": "0.0.0",
-    "main": "npm/index.js",
-    "dependencies": {},
-    "types": "./types/index.d.ts"
+    "version": "0.0.1",
+    "main": "dist/dom.development.cjs.js",
+    "types": "./types/index.d.ts",
+    "files": [
+        "dist",
+        "types"
+    ],
+    "dependencies": {}
 }

@@ -1,6 +1,6 @@
 import {createTreeRootNode, TreeNode} from '@plain-react/core';
 import {TreeElementRootNode, TreeRoot} from '../types';
-import {createElement} from './elements';
+import updateContainer from './UpdateContainer';
 
 export default function render(elementNodeTree: TreeNode, dom: Element): void {
     if (!dom) {
@@ -8,6 +8,7 @@ export default function render(elementNodeTree: TreeNode, dom: Element): void {
     }
 
     const root: TreeElementRootNode = renderRoot(elementNodeTree, dom);
+    updateContainer(root);
 }
 
 function renderRoot(node: TreeNode, dom: Element): TreeElementRootNode {
