@@ -1,5 +1,5 @@
-import render from '@plain-react/dom';
 import {createTreeNode, createTreeRootNode} from '@plain-react/core';
+import render from '../src';
 test('test render', (done) => {
     const root = createTreeRootNode(
         createTreeNode('div', 1, {}, [

@@ -1,5 +1,5 @@
 import {createTreeRootNode, TreeNode} from '@plain-react/core';
-import {TreeElementRootNode, TreeRoot} from '../types';
+import {TreeElementRootNode} from '../types';
 import updateContainer from './UpdateContainer';
 
 export default function render(elementNodeTree: TreeNode, dom: Element): void {
@@ -14,11 +14,9 @@ export default function render(elementNodeTree: TreeNode, dom: Element): void {
 function renderRoot(node: TreeNode, dom: Element): TreeElementRootNode {
     const rootNode = createTreeRootNode(node);
 
-    const root: TreeRoot = {
+    rootNode.root = {
         container: dom
     };
-
-    rootNode.root = root;
 
     return rootNode as TreeElementRootNode;
 }
