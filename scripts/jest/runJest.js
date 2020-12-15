@@ -6,10 +6,8 @@ const {resolve} = require('path');
 
 const args = minimist(process.argv.slice(2));
 
-// Extract custom/invalid options
 const {_, scope, ...restArgs} = args;
-// We assume it's a valid scope
-// When there's a package.json file in the specified project folder
+
 if (!scope || existsSync(resolve('packages', scope, 'packages.json'))) {
     console.error(
         chalk.red('❌ ')

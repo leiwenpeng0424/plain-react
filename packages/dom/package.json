@@ -1,7 +1,7 @@
 {
     "name": "@plain-react/dom",
     "version": "0.0.1",
-    "main": "dist/dom.development.cjs.js",
+    "main": "dist/dom.development.umd.js",
     "types": "./types/index.d.ts",
     "files": [
         "dist",

@@ -21,6 +21,7 @@ export function createElement(node: TreeElementNode): Element {
         props?.attrs,
         props?.events
     );
+
     return node.elem;
 }
 export function createFragment(): DocumentFragment {

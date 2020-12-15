@@ -8,6 +8,7 @@ const minimist = require('minimist');
 const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const replace = require('@rollup/plugin-replace');
 const json = require('@rollup/plugin-json');
+// Using ts only
 // const sucrase = require('@rollup/plugin-sucrase');
 const ts = require('@rollup/plugin-typescript');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -25,7 +26,7 @@ const isDevelopment = envs.development;
 const shouldUseSourcemaps = envs.sourcemaps || envs.development;
 
 function getCUPs() {
-    return os.cpus().length;
+    return  os.cpus().length;
 }
 
 function splitScope(scope) {
@@ -103,7 +104,7 @@ function main() {
         commonjs({}),
         replace({__DEV__: isDevelopment}),
         alias({}),
-        nodeResolve({extensions: ['.js', '.ts', '.mjs']}),
+        nodeResolve({extensions: ['.js', '.ts', '.mjs', '.json']}),
         ts({
             sourceMap: shouldUseSourcemaps,
             // https://stackoverflow.com/questions/63128597/how-to-get-rid-of-the-rollup-plugin-typescript-rollup-sourcemap-option-must
