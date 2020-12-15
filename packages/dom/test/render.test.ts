@@ -1,5 +1,5 @@
 import {createTreeNode, createTreeRootNode} from '@plain-react/core';
-import render from "../src";
+import render from '../src';
 test('test render', (done) => {
     const root = createTreeRootNode(
         createTreeNode('div', 1, {}, [
@@ -12,7 +12,6 @@ test('test render', (done) => {
         ])
     );
 
-    console.log(root);
     render(root, document.getElementById('root') as Element);
     done();
 });
