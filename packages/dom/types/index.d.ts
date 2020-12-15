@@ -1,4 +1,4 @@
-import {TreeElementNode, TreeNode, TreeRoot} from '@plain-react/core';
+import {TreeElementNode, TreeNode} from '@plain-react/core';
 export type PropertyKey = string | number;
 export type PropertyValue = string | boolean | number;
 export type Attrbutes = Record<PropertyKey, PropertyValue>;

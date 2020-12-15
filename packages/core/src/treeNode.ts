@@ -1,4 +1,5 @@
 import {NodeProps, TreeElementNode, TreeNode, TreeNodeChildren} from '../types';
+import {isTextNode} from './textNode';
 
 export function createTreeNode(
     name: string,
@@ -27,6 +28,13 @@ function linkNodes(
     prev?: TreeNode,
     siblings?: TreeElementNode[]
 ): TreeElementNode {
+    // 如果根节点是一个textNode.
+    if (isTextNode(node)) {
+        return {
+            text: (node as unknown) as string,
+            prev
+        };
+    }
     let nextLink;
     (node as TreeElementNode).siblings = siblings;
     if (node.children && Array.isArray(node.children)) {

@@ -6,7 +6,7 @@ export type NodeProps = {
     namespace?: string;
 };
 export type TreeNode = {
-    name: string;
+    name?: string;
     key?: string | number;
     children?: TreeNodeChildren;
     props?: NodeProps;
@@ -14,8 +14,9 @@ export type TreeNode = {
 export type TreeElementNode = {
     prev?: TreeElementNode | TreeElementRootNode;
     next?: TreeElementNode;
-    elem?: Element;
+    elem?: Element | Text | Comment;
     siblings?: TreeElementNode[];
+    text?: string;
     [index: string]: unknown;
 } & Omit<TreeNode, 'children'>;
 // tree root

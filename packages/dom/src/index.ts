@@ -9,6 +9,7 @@ export default function render(elementNodeTree: TreeNode, dom: Element): void {
 
     const root: TreeElementRootNode = renderRoot(elementNodeTree, dom);
     updateContainer(root);
+    console.log('-->', root);
 }
 
 function renderRoot(node: TreeNode, dom: Element): TreeElementRootNode {

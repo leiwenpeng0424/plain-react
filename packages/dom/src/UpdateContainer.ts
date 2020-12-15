@@ -1,4 +1,5 @@
-import {TreeElementNode} from '@plain-react/core';
+import {findRootNode, TreeElementNode} from '@plain-react/core';
+import {TreeElementRootNode} from '../types';
 import {appendToParent, createElement, createFragment} from './elements';
 
 type UpdatedCallback = () => void;
@@ -16,7 +17,11 @@ function walkTree(node: TreeElementNode) {
 
     let parent: Element;
     if (!node.prev) {
-        parent = createElement(node);
+        if (!node.name) {
+            // 到这里一定是因为第一个节是一个文本节点或者是注释节点.
+            return;
+        }
+        parent = createElement(node) as Element;
     } else {
         parent = (node.prev as TreeElementNode).elem as Element;
     }
@@ -30,5 +35,12 @@ function walkTree(node: TreeElementNode) {
     }
 
     appendToParent(parent, createElement(node));
-    next && walkTree(next);
+    if (next) {
+        walkTree(next);
+    } else {
+        const rootNode = findRootNode(node) as TreeElementRootNode;
+        if (rootNode && rootNode.elem) {
+            rootNode.root.container.appendChild(rootNode.elem);
+        }
+    }
 }

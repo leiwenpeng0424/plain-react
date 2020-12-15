@@ -7,22 +7,34 @@ import {Attrbutes, DomEvents, TreeElementRootNode, TreeRoot} from '../types';
 let ownDoc: Document;
 let rootNode: TreeElementNode;
 
-export function createElement(node: TreeElementNode): Element {
+export function createElement(node: TreeElementNode): Element | Text {
     if (!rootNode) {
         rootNode = findTreeRootNode(node);
         ownDoc = ((rootNode as TreeElementRootNode).root as TreeRoot).container
             .ownerDocument;
     }
 
-    const {name, props} = node;
-    node.elem = createDomElement(
-        name,
-        props?.namespace,
-        props?.attrs,
-        props?.events
-    );
+    const {name, props, text} = node;
+    let elem: Element | Text;
 
-    return node.elem;
+    if (!name) {
+        if (text != null) {
+            elem = createTextElement(text);
+        } else {
+            elem = createTextElement('');
+        }
+    } else {
+        elem = createDomElement(
+            name,
+            props?.namespace,
+            props?.attrs,
+            props?.events
+        );
+    }
+
+    node.elem = elem;
+
+    return elem;
 }
 export function createFragment(): DocumentFragment {
     return ownDoc.createDocumentFragment();
@@ -30,7 +42,7 @@ export function createFragment(): DocumentFragment {
 
 export function appendToParent(
     parent: Element | DocumentFragment | Document,
-    child: Element | DocumentFragment
+    child: Element | DocumentFragment | Text | Comment
 ): void {
     parent.appendChild(child);
 }
@@ -52,6 +64,10 @@ function createDomElement(
     appendEvents(elem, events);
 
     return elem;
+}
+
+function createTextElement(text: string): Text {
+    return ownDoc.createTextNode(text);
 }
 
 function appendAttrs(elem: Element, attrs: Attrbutes): void {

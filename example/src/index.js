@@ -1,21 +1,27 @@
-import {createElement} from '@plain-react/virtual-dom';
+import Render from '@plain-react/dom';
+import {createTreeNode} from '@plain-react/core';
 
-const node1 = createElement('div', {}, [
-  createElement('h1', {key: '1'}, ['Hello World']),
-  createElement('h2', {key: '2'}, ['Hello World']),
-  createElement('h3', {key: '3'}, ['Hello World']),
-  createElement('h4', ['Hello World'])
+const node1 = createTreeNode('div', 1, {}, [
+    createTreeNode(
+        'h1',
+        2,
+        {
+            key: '1',
+            attrs: {
+                style: 'color:cyan'
+            }
+        },
+        ['Hello World']
+    ),
+    createTreeNode('h2', 3, {key: '2'}, []),
+    createTreeNode('h3', 4, {key: '3'}, []),
+    createTreeNode('h4', 5, {}, [])
 ]);
-
-const node2 = createElement('div', [
-  createElement('h3', {key: '3'}, ['Hello World']),
-  createElement('h2', {key: '2'}, ['Hello World']),
-  createElement('h1', {key: '1'}, ['Hello World'])
+/**
+const node2 = createTreeNode('div', [
+    createTreeNode('h3', {key: '3'}, ['Hello World']),
+    createTreeNode('h2', {key: '2'}, ['Hello World']),
+    createTreeNode('h1', {key: '1'}, ['Hello World'])
 ]);
-
-render(node1);
-render(node2);
-
-console.log(diff(node1, node2).updater);
-
-document.getElementById('app').appendChild(node1.elem);
+ **/
+Render(node1, document.getElementById('app'));
