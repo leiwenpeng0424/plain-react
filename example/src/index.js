@@ -6,16 +6,43 @@ const node1 = createTreeNode('div', 1, {}, [
         'h1',
         2,
         {
-            key: '1',
             attrs: {
-                style: 'color:cyan'
+                style: 'color:cyan',
+                class: 'classname'
             }
         },
         ['Hello World']
     ),
-    createTreeNode('h2', 3, {key: '2'}, []),
-    createTreeNode('h3', 4, {key: '3'}, []),
-    createTreeNode('h4', 5, {}, [])
+    createTreeNode(
+        'h2',
+        3,
+        {
+            attrs: {
+                style: 'color: red'
+            }
+        },
+        ['Hello World']
+    ),
+    createTreeNode(
+        'h3',
+        4,
+        {
+            attrs: {
+                style: 'color: green'
+            }
+        },
+        ['Hello World']
+    ),
+    createTreeNode(
+        'h4',
+        5,
+        {
+            attrs: {
+                style: 'color: yellow'
+            }
+        },
+        ['Hello World']
+    )
 ]);
 /**
 const node2 = createTreeNode('div', [

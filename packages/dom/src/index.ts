@@ -8,8 +8,9 @@ export default function render(elementNodeTree: TreeNode, dom: Element): void {
     }
 
     const root: TreeElementRootNode = renderRoot(elementNodeTree, dom);
+    const start = performance.now();
     updateContainer(root);
-    console.log('-->', root);
+    console.log('-->', performance.now() - start, '->', root);
 }
 
 function renderRoot(node: TreeNode, dom: Element): TreeElementRootNode {

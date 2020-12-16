@@ -10,8 +10,7 @@ let rootNode: TreeElementNode;
 export function createElement(node: TreeElementNode): Element | Text {
     if (!rootNode) {
         rootNode = findTreeRootNode(node);
-        ownDoc = ((rootNode as TreeElementRootNode).root as TreeRoot).container
-            .ownerDocument;
+        ownDoc = (rootNode as TreeElementRootNode).root.container.ownerDocument;
     }
 
     const {name, props, text} = node;

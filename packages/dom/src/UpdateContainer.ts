@@ -26,15 +26,18 @@ function walkTree(node: TreeElementNode) {
         parent = (node.prev as TreeElementNode).elem as Element;
     }
 
+    appendToParent(parent, createElement(node));
+
     if (siblings) {
         const fragment = createFragment();
         for (let idx = 0; idx < siblings.length; idx++) {
-            appendToParent(fragment, createElement(siblings[idx]));
+            const siblingNode = siblings[idx];
+            createElement(siblingNode);
+            walkTree(siblingNode);
         }
         appendToParent(parent, fragment);
     }
 
-    appendToParent(parent, createElement(node));
     if (next) {
         walkTree(next);
     } else {
