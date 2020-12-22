@@ -2,7 +2,10 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es5",
-        "lib": ["DOM", "ESNext"],
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
         "pretty": true,
         "strict": true,
         "allowJs": true,
@@ -11,5 +14,11 @@
         "importHelpers": false,
         "strictNullChecks": true
     },
-    "exclude": ["node_modules", "example", "**/dist/**"]
+    "exclude": [
+        "node_modules",
+        "example",
+        "scripts",
+        "**/dist/**",
+        "**/__tests__/**"
+    ]
 }
