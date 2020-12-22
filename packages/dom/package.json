@@ -1,0 +1,23 @@
+{
+    "name": "@vvs/dom",
+    "version": "1.0.0",
+    "description": "dom implementation",
+    "main": "index.ts",
+    "scripts": {
+        "test": "echo \"don't excute test command here\""
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/leiwenpeng0424/plain-react.git"
+    },
+    "keywords": [
+        "dom",
+        "implementation"
+    ],
+    "author": "lei",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/leiwenpeng0424/plain-react/issues"
+    },
+    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme"
+}

@@ -26,9 +26,14 @@ const isDevelopment = envs.development;
 const shouldUseSourcemaps = envs.sourcemaps || envs.development;
 
 function getCUPs() {
-    return  os.cpus().length;
+    return os.cpus().length;
 }
 
+/**
+ *
+ * @param scope
+ * @returns {null|*[]|*}
+ */
 function splitScope(scope) {
     if (scope === '') return null;
     const scopes = scope.split(',');
@@ -38,12 +43,24 @@ function splitScope(scope) {
     return [scope];
 }
 
+/**
+ *
+ * @param scopes
+ * @param packageName
+ * @param placeholder
+ * @returns {*}
+ */
 function matchPackageName(scopes, packageName, placeholder) {
     if (scopes === null) return placeholder;
     const name = packageName.split('/')[1];
     return scopes.includes(name);
 }
 
+/**
+ *
+ * @param jsonFilePath
+ * @returns {any}
+ */
 function readJSON(jsonFilePath) {
     try {
         return JSON.parse(fs.readFileSync(jsonFilePath).toString('utf-8'));
