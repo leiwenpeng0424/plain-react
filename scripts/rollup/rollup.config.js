@@ -31,23 +31,22 @@ function getCUPs() {
 
 /**
  *
- * @param scope
- * @returns {null|*[]|*}
+ * @param scope {string}
+ * @returns {null|string[]}
  */
 function splitScope(scope) {
-    if (scope === '') return null;
-    const scopes = scope.split(',');
-    if (scopes.length > 1) {
-        return scopes;
+    try {
+        return scope.split(',');
+    } catch (e) {
+        return null;
     }
-    return [scope];
 }
 
 /**
  *
- * @param scopes
- * @param packageName
- * @param placeholder
+ * @param scopes {string[]}
+ * @param packageName {string}
+ * @param placeholder {boolean}
  * @returns {*}
  */
 function matchPackageName(scopes, packageName, placeholder) {
@@ -58,7 +57,7 @@ function matchPackageName(scopes, packageName, placeholder) {
 
 /**
  *
- * @param jsonFilePath
+ * @param jsonFilePath {PathLike}
  * @returns {any}
  */
 function readJSON(jsonFilePath) {
@@ -69,6 +68,11 @@ function readJSON(jsonFilePath) {
     }
 }
 
+/**
+ *
+ * @param packages {string[]}
+ * @returns {*}
+ */
 function batchPackages(packages) {
     return packages.map((pack) => {
         return {
@@ -78,6 +82,12 @@ function batchPackages(packages) {
     });
 }
 
+/**
+ *
+ * @param scope {string}
+ * @param ignore {string}
+ * @returns {*}
+ */
 function getSortedPackages(scope, ignore) {
     const scopes = splitScope(scope);
     const ignores = splitScope(ignore);
