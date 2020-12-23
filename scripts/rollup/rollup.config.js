@@ -3,12 +3,11 @@
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
-const minimist = require('minimist');
+const glob = require('../utils/glob');
+const minimist = require('../utils/minimist');
 const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const replace = require('@rollup/plugin-replace');
 const json = require('@rollup/plugin-json');
-// Using ts only
 // const sucrase = require('@rollup/plugin-sucrase');
 const ts = require('@rollup/plugin-typescript');
 const commonjs = require('@rollup/plugin-commonjs');
@@ -109,7 +108,6 @@ function getSortedPackages(scope, ignore) {
  * @param moduleResolution {string}
  */
 function bundleNameByModuleResolution(name, moduleResolution) {
-    // 全部小写处理
     moduleResolution = moduleResolution.toLowerCase();
     let suffix = 'development';
     if (isProduction && !isDevelopment) {

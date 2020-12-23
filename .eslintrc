@@ -22,7 +22,9 @@
         // 类型检查
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
       ],
-      "rules": {}
+      "rules": {
+          "@typescript-eslint/no-unsafe-assignment": "warn"
+      }
     }
   ],
   "rules": {

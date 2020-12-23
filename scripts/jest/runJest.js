@@ -1,8 +1,8 @@
-const spawn = require('cross-spawn');
-const minimist = require('minimist');
 const {existsSync} = require('fs');
 const {resolve} = require('path');
 const log = require('../utils/log');
+const spawn = require('../utils/cross-spawn');
+const minimist = require('../utils/minimist');
 
 const args = minimist(process.argv.slice(2));
 
@@ -21,11 +21,26 @@ const defaultArgs = {
     roots: '<rootDir>/packages/' + scope + '/__tests__/'
 };
 
+/**
+ *
+ * @type {FlatArray<string|number>[]}
+ */
+const options = Object.entries(
+    {
+        ...defaultArgs,
+        ...restArgs
+    }
+).map((argPair) => {
+    const [key, value] = argPair;
+    return [
+        '--' + key,
+        value
+    ];
+}).flat(1);
+
 spawn(
     'jest',
-    Object.keys(Object.assign(restArgs, defaultArgs))
-        .map((key) => ['--' + key, restArgs[key]])
-        .reduce((acc, cur) => acc.concat(cur), []),
+    options,
     {
         stdio: 'inherit'
     }
