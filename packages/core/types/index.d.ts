@@ -1,6 +1,5 @@
 export type NodeProps = {
-    key?: number, string;
-    [index: string]: any;
+    key?: number | string;
 }
 
 export type TreeNode = {
@@ -17,7 +16,4 @@ export type TreeNodeRoot = {
 
 export type ElementFunction = () => TreeNode;
 
-export function createElement(name: string | ElementFunction): void;
-export function createElement(name: string | ElementFunction, props: any): void;
-export function createElement(name: string | ElementFunction, props: any, children: []): void;
-export function createElement(name: string | ElementFunction, props: any, children: [], ...others: Array[any]): void;
+export function createElement(name: string | ElementFunction, props?: NodeProps, children?: []): void;

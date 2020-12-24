@@ -19,5 +19,6 @@
     "bugs": {
         "url": "https://github.com/leiwenpeng0424/plain-react/issues"
     },
-    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme"
+    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme",
+    "types": "./types/index.d.ts"
 }
