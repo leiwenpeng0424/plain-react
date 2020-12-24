@@ -1,4 +1,4 @@
-import { createElement } from "../src/Elements";
+import { createElement } from "../src";
 
 describe('Testing Create Element', () => {
 

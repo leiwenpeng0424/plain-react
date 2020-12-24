@@ -2,7 +2,7 @@
     "name": "@vvs/core",
     "version": "1.0.0",
     "description": "vNode vTree",
-    "main": "index.ts",
+    "main": "./dist/core.development.cjs.js",
     "scripts": {
         "test": "echo \"don't execute test command here\""
     },

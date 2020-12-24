@@ -2,7 +2,7 @@
     "name": "@vvs/dom",
     "version": "1.0.0",
     "description": "dom implementation",
-    "main": "index.ts",
+    "main": "./dist/dom.development.cjs.js",
     "scripts": {
         "test": "echo \"don't excute test command here\""
     },
@@ -19,5 +19,6 @@
     "bugs": {
         "url": "https://github.com/leiwenpeng0424/plain-react/issues"
     },
-    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme"
+    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme",
+    "types": "./types/index.d.ts"
 }

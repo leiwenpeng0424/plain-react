@@ -10,10 +10,7 @@ export type TreeNode = {
     ref?: any;
 }
 
-export type TreeNodeRoot = {
-    rootNode: TreeNode;
-} & TreeNode;
-
 export type ElementFunction = () => TreeNode;
 
-export function createElement(name: string | ElementFunction, props?: NodeProps, children?: []): void;
+export function createElement(name: string | ElementFunction, props?: NodeProps, children?: Array<TreeNode>): TreeNode;
+export function createElement(name: string | ElementFunction, children?: Array<TreeNode>): TreeNode;

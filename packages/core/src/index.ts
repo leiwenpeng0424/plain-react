@@ -1,3 +1,2 @@
-export default function aaa(): void {
-    console.log('aaa');
-}
+export {createElement} from './Elements';
+

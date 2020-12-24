@@ -35,7 +35,7 @@ function getCUPs() {
  */
 function splitScope(scope) {
     try {
-        return scope.split(',');
+        return scope.split(' '); // separator used to be `,`
     } catch (e) {
         return null;
     }
