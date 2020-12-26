@@ -1,18 +1,18 @@
 'use strict';
 
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
-const glob = require('../utils/glob');
-const minimist = require('../utils/minimist');
+const os            = require('os');
+const fs            = require('fs');
+const path          = require('path');
+const glob          = require('../utils/glob');
+const minimist      = require('../utils/minimist');
 const {nodeResolve} = require('@rollup/plugin-node-resolve');
-const replace = require('@rollup/plugin-replace');
-const json = require('@rollup/plugin-json');
+const replace       = require('@rollup/plugin-replace');
+const json          = require('@rollup/plugin-json');
 // const sucrase = require('@rollup/plugin-sucrase');
-const ts = require('@rollup/plugin-typescript');
+const ts       = require('@rollup/plugin-typescript');
 const commonjs = require('@rollup/plugin-commonjs');
 const {terser} = require('rollup-plugin-terser');
-const alias = require('@rollup/plugin-alias');
+const alias    = require('@rollup/plugin-alias');
 
 const cwd = process.cwd();
 const {version, workspaces} = require('../../package.json');

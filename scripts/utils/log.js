@@ -14,7 +14,7 @@ module.exports = ({
     time = new Date()
 }) => {
     if (typeof message === 'object') {
-        LogPrefix = '%O';
+        LogPrefix = '%o';
     }
 
     const log = console.log.bind(console, LogPrefix);

@@ -1,8 +1,8 @@
 const {existsSync} = require('fs');
-const {resolve} = require('path');
-const log = require('../utils/log');
-const spawn = require('../utils/cross-spawn');
-const minimist = require('../utils/minimist');
+const {resolve}    = require('path');
+const log          = require('../utils/log');
+const spawn        = require('../utils/cross-spawn');
+const minimist     = require('../utils/minimist');
 
 const args = minimist(process.argv.slice(2));
 
