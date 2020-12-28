@@ -1,6 +1,0 @@
-root = true
-
-[*]
-tab_width = 2
-end_of_line = crlf
-

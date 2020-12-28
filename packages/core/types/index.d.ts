@@ -7,7 +7,7 @@ export type TreeNode = {
     key?: string | number;
     props?: NodeProps;
     children?: TreeNode[];
-    ref?: any;
+    // ref?: any;
 }
 
 export type ElementFunction = () => TreeNode;
