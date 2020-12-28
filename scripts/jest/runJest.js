@@ -25,23 +25,16 @@ const defaultArgs = {
  *
  * @type {FlatArray<string|number>[]}
  */
-const options = Object.entries(
-    {
-        ...defaultArgs,
-        ...restArgs
-    }
-).map((argPair) => {
-    const [key, value] = argPair;
-    return [
-        '--' + key,
-        value
-    ];
-}).flat(1);
+const options = Object.entries({
+    ...defaultArgs,
+    ...restArgs
+})
+    .map((argPair) => {
+        const [key, value] = argPair;
+        return ['--' + key, value];
+    })
+    .flat(1);
 
-spawn(
-    'jest',
-    options,
-    {
-        stdio: 'inherit'
-    }
-);
+spawn('jest', options, {
+    stdio: 'inherit'
+});
