@@ -16,12 +16,15 @@
         "commonjs": true,
         "worker": true
     },
+    // "extends": ["plugin:prettier/recommended"],
     "overrides": [
         {
             "parser": "@typescript-eslint/parser",
             "files": ["**/*.ts"],
             "plugins": ["@typescript-eslint"],
             "extends": [
+                // prettier
+                // "plugin:prettier/recommended",
                 "plugin:@typescript-eslint/recommended",
                 // 类型检查
                 "plugin:@typescript-eslint/recommended-requiring-type-checking"
@@ -75,9 +78,9 @@
         "id-blacklist": "error",
         "id-length": "off",
         "id-match": "error",
-        "indent": ["warn", 4, {"SwitchCase": 1}],
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "init-declarations": "off",
-        //    "jsx-quotes": ["error", "prefer-double"],
+        "jsx-quotes": ["warn", "prefer-double"],
         "key-spacing": "off",
         "keyword-spacing": "off",
         "linebreak-style": ["off", "windows"],

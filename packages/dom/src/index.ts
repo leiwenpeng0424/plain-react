@@ -4,9 +4,13 @@
  *
  */
 import {TreeNode} from '@vvs/core';
-import {createContainer} from './Elements';
+import {Tree} from '../types';
+import {createContainer, updateContainer} from './Elements';
 
 export default function render(node: TreeNode, container: Element): void {
-    const rootContainer = createContainer(node, container);
-    console.log('%o',rootContainer);
+    const tree = createContainer(node, container);
+    updateContainer(tree as Tree);
+    console.log(tree);
+
+    // console.log('%o', tree);
 }

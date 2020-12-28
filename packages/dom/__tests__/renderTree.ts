@@ -13,7 +13,7 @@ describe('create element tree by Node', () => {
         ])
     ]);
 
-    render(node, document.getElementById('app') as Element);
+    render(node, document.createElement('div'));
 
     test('render tree', () => {
         expect(node.type).toEqual('div');

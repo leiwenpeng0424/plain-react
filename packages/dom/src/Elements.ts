@@ -6,8 +6,16 @@
  */
 
 import {TreeNode} from '@vvs/core';
-import {TreeElementNode, TreeRootNode} from '../types';
+import {Tree, TreeElementNode, TreeRootNode} from '../types';
 
+let doc: Document;
+
+/**
+ * @example
+ *  - create root node
+ * @param node
+ * @param container
+ */
 export function createContainer(
     node: TreeNode,
     container: Element
@@ -26,11 +34,11 @@ function createLinkedNode(root: TreeRootNode): TreeRootNode {
 
 /**
  *
- * 对传入的TreeNode添加属性
- *    - 连接 *prev*
- *    - 连接 *next*
- *    - 处理/连接 *siblings*, 从prev.children中读取siblings
- *    - 返回添加好属性的节点
+ * @example 对传入的TreeNode添加属性
+ *  - 连接 *prev*
+ *  - 连接 *next*
+ *  - 处理/连接 *siblings*, 从prev.children中读取siblings
+ *  - 返回添加好属性的节点
  */
 function linkNode(node: TreeNode, parent?: TreeElementNode): TreeElementNode {
     // 准备最后返回的对象.
@@ -64,6 +72,106 @@ function linkNode(node: TreeNode, parent?: TreeElementNode): TreeElementNode {
     return elementNode;
 }
 
+/**
+ * @example
+ *  - mount dom to root-container
+ * @param node {TreeElementNode}
+ */
 export function updateContainer(node: TreeElementNode): void {
-    return;
+    const root = findTreeRootNode(node) as TreeRootNode;
+
+    if(!doc || doc !== root.container.ownerDocument) {
+        doc = root.container.ownerDocument;
+    }
+    renderRoot(root);
+}
+
+/**
+ *
+ * @example
+ *  - let root = findRoot(node);
+ * @param node
+ */
+export function findTreeRootNode(node: TreeElementNode): Tree | undefined {
+    const prev = node.prev;
+    if (!prev) {
+        return node as Tree;
+    } else {
+        return findTreeRootNode(prev);
+    }
+}
+
+/**
+ * @example
+ *  - const rootDom = renderRoot(root);
+ * @param root
+ */
+function renderRoot(root: TreeRootNode) {
+    const {node}   = root;
+    const _rootDom = doc.createElement(
+        node.type
+    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // _rootDom.__root__ = root;
+    node.elem = _rootDom;
+    renderIntoRootContainer(node.next, _rootDom);
+}
+
+/**
+ * @example
+ * @param node {TreeElementNode} Node
+ * @param container {Element} parent element
+ */
+function renderIntoRootContainer(node: TreeElementNode| undefined, container: Element| undefined) {
+    const prev = node?.prev;
+    const siblings = prev?.siblings;
+    const next = node?.next;
+    let elem;
+
+    if(container && node) {
+        renderNodeElementIntoContainer(node, container);
+        if(siblings) {
+            renderSiblingsIntoConatiner(siblings, container);
+        }
+
+        if(next) {
+            renderIntoRootContainer(next, elem);
+        }
+    }
+
+}
+
+/**
+ * @example
+ *  - render sibling-doms into parent-container
+ * @param siblings
+ * @param container
+ */
+function renderSiblingsIntoConatiner(siblings: Array<TreeElementNode>, container: Element|Document) {
+    const fragment = doc.createDocumentFragment();
+    for (const sibling of siblings) {
+        fragment.appendChild(
+            doc.createElement(sibling.type)
+        );
+    }
+    container.appendChild(fragment);
+}
+
+/**
+ * @example
+ *  - render dom in to parent-container
+ * @param node
+ * @param container
+ */
+function renderNodeElementIntoContainer(
+    node: TreeElementNode, container: Element | Document
+) {
+    if(!node.elem) {
+        node.elem = doc.createElement(node.type);
+    } else {
+        if(!container.contains(node.elem)) {
+            container.appendChild(node.elem);
+        }
+    }
 }
