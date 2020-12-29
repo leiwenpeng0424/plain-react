@@ -6,10 +6,10 @@ describe('create element tree by Node', () => {
         createElement('div', [
             createElement('div', [
                 createElement('div', [
-                    createElement('div', [])
+                    createElement('span', [])
                 ])
             ]),
-            createElement('div')
+            createElement('div'),createElement('div'),createElement('div'),createElement('div'),createElement('div'),createElement('div'),createElement('div')
         ])
     ]);
 

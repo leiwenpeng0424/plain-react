@@ -175,3 +175,12 @@ function renderNodeElementIntoContainer(
         }
     }
 }
+
+function createNodeElement(node: TreeElementNode): Element | undefined {
+
+    if(typeof node.type === 'function') {
+        node = node.type();
+    }
+
+    return void 0;
+}
