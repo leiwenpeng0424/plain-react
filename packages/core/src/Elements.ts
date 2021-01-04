@@ -1,5 +1,12 @@
 import {NodeProps, TreeNode} from '../types';
 
+/**
+ * [createElement description]
+ * @param  {string}          type     [description]
+ * @param  {NodeProps}       props    [description]
+ * @param  {Array<TreeNode>} children [description]
+ * @return {TreeNode}                 [description]
+ */
 export function createElement(
     type: string,
     props?: NodeProps,
@@ -20,6 +27,14 @@ export function createElement(
     return element(type, key, props, children);
 }
 
+/**
+ * [element description]
+ * @param  {string}          type     [description]
+ * @param  {string|number}   key      [description]
+ * @param  {NodeProps}       props    [description]
+ * @param  {Array<TreeNode>} children [description]
+ * @return {TreeNode}                 [description]
+ */
 export function element(
     type: string,
     key?: string | number,

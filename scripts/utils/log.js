@@ -10,8 +10,8 @@ let LogPrefix = '%s';
  */
 module.exports = ({
     severity,
-    message,
-    time = new Date()
+    message
+    // time = new Date()
 }) => {
     if (typeof message === 'object') {
         LogPrefix = '%o';
@@ -24,7 +24,6 @@ module.exports = ({
             log(chalk.bgRed(message));
             // eslint-disable-next-line no-process-exit
             process.exit(1);
-            break;
         }
         case 'ERROR': {
             message = chalk.red(message);

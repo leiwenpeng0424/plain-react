@@ -35,6 +35,4 @@ const options = Object.entries({
     })
     .flat(1);
 
-spawn('jest', options, {
-    stdio: 'inherit'
-});
+spawn('jest', options, {stdio: 'inherit'});

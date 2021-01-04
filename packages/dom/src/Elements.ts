@@ -176,8 +176,12 @@ function renderNodeElementIntoContainer(
     }
 }
 
+/**
+ * 创建真实的dom节点
+ * @param  {TreeElementNode} node VNode
+ * @return {Element}              Element
+ */
 function createNodeElement(node: TreeElementNode): Element | undefined {
-
     if(typeof node.type === 'function') {
         node = node.type();
     }

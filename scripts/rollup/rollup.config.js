@@ -8,14 +8,14 @@ const minimist      = require('../utils/minimist');
 const {nodeResolve} = require('@rollup/plugin-node-resolve');
 const replace       = require('@rollup/plugin-replace');
 const json          = require('@rollup/plugin-json');
-// const sucrase = require('@rollup/plugin-sucrase');
-const ts       = require('@rollup/plugin-typescript');
-const commonjs = require('@rollup/plugin-commonjs');
-const {terser} = require('rollup-plugin-terser');
-const alias    = require('@rollup/plugin-alias');
+// const sucrase    = require('@rollup/plugin-sucrase');
+const ts            = require('@rollup/plugin-typescript');
+const commonjs      = require('@rollup/plugin-commonjs');
+const {terser}      = require('rollup-plugin-terser');
+const alias         = require('@rollup/plugin-alias');
 
 const cwd = process.cwd();
-const {version, workspaces} = require('../../package.json');
+const {workspaces} = require('../../package.json');
 const envs = minimist(process.argv.slice(2), {
     default: {scope: '', ignore: ''}
 });
@@ -35,7 +35,7 @@ function getCUPs() {
  */
 function splitScope(scope) {
     try {
-        return scope.split(','); // separator used to be `,`
+        return scope.split(',');
     } catch (e) {
         return null;
     }
