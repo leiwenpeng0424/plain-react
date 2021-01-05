@@ -1,9 +1,26 @@
-import * as babel from '@babel/core';
+/**
+ *  @public jsx transform
+ **/
 
-const t = babel.types;
+import {types as t, transform} from '@babel/core';
+// import * as helper from '@babel/helper-builder-react-jsx';
 
-function declare(): void {
+const declare = () => {
     const visitor = {};
-}
+
+    transform(
+        'let A = <div className="sample">aaa</div>',
+        {
+        },
+        (err, result) => {
+            if(err) {
+                throw err;
+            } else {
+                console.log(result?.ast);
+
+            }
+        }
+    );
+};
 
 export default declare;
