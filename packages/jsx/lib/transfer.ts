@@ -1,19 +1,9 @@
-import traverse from '@babel/traverse';
-import * as parser from '@babel/parser';
 import * as babel from '@babel/core';
 
-export default function () {
-    babel.transform(`<div><h1></h1></div>`, {
-        ast: true,
-        plugins: ["@babel/plugin-syntax-jsx"]
-    },(err, result) => {
-        if (err) {
-            console.error(err.message);
-            return;
-        }
+const t = babel.types;
 
-        traverse(result?.ast, {
-            JSXElement() {}
-        });
-    });
+function declare(): void {
+    const visitor = {};
 }
+
+export default declare;

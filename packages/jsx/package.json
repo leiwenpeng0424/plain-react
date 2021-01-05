@@ -16,6 +16,7 @@
   "author": "ray",
   "license": "MIT",
   "dependencies": {
+    "@babel/helper-builder-react-jsx": "^7.10.4",
     "@babel/parser": "^7.12.11",
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/traverse": "^7.12.12",

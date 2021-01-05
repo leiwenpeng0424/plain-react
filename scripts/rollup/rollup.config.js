@@ -15,9 +15,12 @@ const {terser}      = require('rollup-plugin-terser');
 const alias         = require('@rollup/plugin-alias');
 
 const cwd = process.cwd();
-const {workspaces} = require('../../package.json');
+const {version, workspaces} = require('../../package.json');
 const envs = minimist(process.argv.slice(2), {
-    default: {scope: '', ignore: ''}
+    default: {
+        scope: '',
+        ignore: ''
+    }
 });
 
 const isProduction = envs.production;

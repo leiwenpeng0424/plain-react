@@ -20,13 +20,15 @@ export function createContainer(
     node: TreeNode,
     container: Element
 ): TreeRootNode {
-    const root = {
-        node,
-        container
-    };
+    const root = {node,container};
     return createLinkedNode(root);
 }
 
+/**
+ * 创建连接的节点
+ * @param  {TreeRootNode} root [普通的节点]
+ * @return {TreeRootNode}      [连接的节点]
+ */
 function createLinkedNode(root: TreeRootNode): TreeRootNode {
     root.node = linkNode(root.node);
     return root;
@@ -119,9 +121,9 @@ function renderRoot(root: TreeRootNode) {
 }
 
 /**
- * @example
- * @param node {TreeElementNode} Node
- * @param container {Element} parent element
+ * h
+ * @param {TreeElementNode| undefined} node      [Vnode]
+ * @param {Element| undefined}         container [DomElement]
  */
 function renderIntoRootContainer(node: TreeElementNode| undefined, container: Element| undefined) {
     const prev = node?.prev;
@@ -170,9 +172,9 @@ function renderNodeElementIntoContainer(
     if(!node.elem) {
         node.elem = doc.createElement(node.type);
     } else {
-        if(!container.contains(node.elem)) {
-            container.appendChild(node.elem);
-        }
+        // if(!container.contains(node.elem)) {
+        //     container.appendChild(node.elem);
+        // }
     }
 }
 
@@ -183,7 +185,7 @@ function renderNodeElementIntoContainer(
  */
 function createNodeElement(node: TreeElementNode): Element | undefined {
     if(typeof node.type === 'function') {
-        node = node.type();
+        // node = node.type();
     }
 
     return void 0;
