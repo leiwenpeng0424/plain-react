@@ -1,6 +1,6 @@
-const chalk = require('chalk');
+const chalk = require("chalk");
 
-let LogPrefix = '%s';
+let LogPrefix = "%s";
 
 /**
  *
@@ -13,27 +13,27 @@ module.exports = ({
     message
     // time = new Date()
 }) => {
-    if (typeof message === 'object') {
-        LogPrefix = '%o';
+    if (typeof message === "object") {
+        LogPrefix = "%o";
     }
 
     const log = console.log.bind(console, LogPrefix);
 
     switch (severity) {
-        case 'FATAL': {
+        case "FATAL": {
             log(chalk.bgRed(message));
             // eslint-disable-next-line no-process-exit
             process.exit(1);
         }
-        case 'ERROR': {
+        case "ERROR": {
             message = chalk.red(message);
             break;
         }
-        case 'WARN': {
+        case "WARN": {
             message = chalk.yellow(message);
             break;
         }
-        case 'INFO': {
+        case "INFO": {
             message = chalk.cyan(message);
             break;
         }

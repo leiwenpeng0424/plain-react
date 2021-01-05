@@ -1,15 +1,10 @@
-import { createElement } from "../src";
+import {createElement} from "../src";
 
-describe('Testing Create Element', () => {
+describe("Testing Create Element", () => {
+    const tree = createElement("div", {}, [createElement("div")]);
 
-    const tree = createElement(
-        'div', {}, [
-            createElement('div')
-        ]
-    );
-
-    test('Create Element', () => {
+    test("Create Element", () => {
         expect(tree.type).toEqual("div");
-        expect((tree.children?.[0])?.type).toEqual("div");
+        expect(tree.children?.[0]?.type).toEqual("div");
     });
 });

@@ -3,9 +3,9 @@
  * render into target dom
  *
  */
-import {TreeNode} from '@vvs/core';
-import {Tree} from '../types';
-import {createContainer, updateContainer} from './Elements';
+import {TreeNode} from "@vvs/core";
+import {Tree} from "../types";
+import {createContainer, updateContainer} from "./Elements";
 
 /**
  * Render Method

@@ -1,3 +1,3 @@
-const minimist = require('minimist');
+const minimist = require("minimist");
 
 module.exports = minimist;

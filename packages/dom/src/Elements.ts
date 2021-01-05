@@ -5,8 +5,8 @@
  * -
  */
 
-import {TreeNode} from '@vvs/core';
-import {Tree, TreeElementNode, TreeRootNode} from '../types';
+import {TreeNode} from "@vvs/core";
+import {Tree, TreeElementNode, TreeRootNode} from "../types";
 
 let doc: Document;
 
@@ -20,7 +20,7 @@ export function createContainer(
     node: TreeNode,
     container: Element
 ): TreeRootNode {
-    const root = {node,container};
+    const root = {node, container};
     return createLinkedNode(root);
 }
 
@@ -58,10 +58,10 @@ function linkNode(node: TreeNode, parent?: TreeElementNode): TreeElementNode {
         elementNode.next = linkNode(curChildren[0], elementNode);
     }
     if (
-        parent
-        && parent.children
-        && Array.isArray(parent.children)
-        && parent.children.length > 1
+        parent &&
+        parent.children &&
+        Array.isArray(parent.children) &&
+        parent.children.length > 1
     ) {
         // 处理当前节点的siblings.
         // 如果上一个节点有没有siblings.
@@ -82,7 +82,7 @@ function linkNode(node: TreeNode, parent?: TreeElementNode): TreeElementNode {
 export function updateContainer(node: TreeElementNode): void {
     const root = findTreeRootNode(node) as TreeRootNode;
 
-    if(!doc || doc !== root.container.ownerDocument) {
+    if (!doc || doc !== root.container.ownerDocument) {
         doc = root.container.ownerDocument;
     }
     renderRoot(root);
@@ -109,10 +109,8 @@ export function findTreeRootNode(node: TreeElementNode): Tree | undefined {
  * @param root
  */
 function renderRoot(root: TreeRootNode) {
-    const {node}   = root;
-    const _rootDom = doc.createElement(
-        node.type
-    );
+    const {node} = root;
+    const _rootDom = doc.createElement(node.type);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     // _rootDom.__root__ = root;
@@ -125,23 +123,25 @@ function renderRoot(root: TreeRootNode) {
  * @param {TreeElementNode| undefined} node      [Vnode]
  * @param {Element| undefined}         container [DomElement]
  */
-function renderIntoRootContainer(node: TreeElementNode| undefined, container: Element| undefined) {
+function renderIntoRootContainer(
+    node: TreeElementNode | undefined,
+    container: Element | undefined
+) {
     const prev = node?.prev;
     const siblings = prev?.siblings;
     const next = node?.next;
     let elem;
 
-    if(container && node) {
+    if (container && node) {
         renderNodeElementIntoContainer(node, container);
-        if(siblings) {
+        if (siblings) {
             renderSiblingsIntoConatiner(siblings, container);
         }
 
-        if(next) {
+        if (next) {
             renderIntoRootContainer(next, elem);
         }
     }
-
 }
 
 /**
@@ -150,12 +150,13 @@ function renderIntoRootContainer(node: TreeElementNode| undefined, container: El
  * @param siblings
  * @param container
  */
-function renderSiblingsIntoConatiner(siblings: Array<TreeElementNode>, container: Element|Document) {
+function renderSiblingsIntoConatiner(
+    siblings: Array<TreeElementNode>,
+    container: Element | Document
+) {
     const fragment = doc.createDocumentFragment();
     for (const sibling of siblings) {
-        fragment.appendChild(
-            doc.createElement(sibling.type)
-        );
+        fragment.appendChild(doc.createElement(sibling.type));
     }
     container.appendChild(fragment);
 }
@@ -167,9 +168,10 @@ function renderSiblingsIntoConatiner(siblings: Array<TreeElementNode>, container
  * @param container
  */
 function renderNodeElementIntoContainer(
-    node: TreeElementNode, container: Element | Document
+    node: TreeElementNode,
+    container: Element | Document
 ) {
-    if(!node.elem) {
+    if (!node.elem) {
         node.elem = doc.createElement(node.type);
     } else {
         // if(!container.contains(node.elem)) {
@@ -184,7 +186,7 @@ function renderNodeElementIntoContainer(
  * @return {Element}              Element
  */
 function createNodeElement(node: TreeElementNode): Element | undefined {
-    if(typeof node.type === 'function') {
+    if (typeof node.type === "function") {
         // node = node.type();
     }
 

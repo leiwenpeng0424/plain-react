@@ -8,7 +8,7 @@
         ],
         "sourceType": "module"
     },
-    "ignorePatterns": ["**/npm", "**/dist", "**/build"],
+    "ignorePatterns": ["**/npm", "**/dist", "**/build", "**/__tests__"],
     "env": {
         "browser": true,
         "node": true,
@@ -217,7 +217,7 @@
         "prefer-spread": "off",
         "prefer-template": "off",
         "quote-props": "off",
-        "quotes": ["warn", "single", {"avoidEscape": true}],
+        "quotes": ["warn", "double", {"avoidEscape": true}],
         "radix": "off",
         "require-jsdoc": "off",
         "require-yield": "error",

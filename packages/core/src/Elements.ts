@@ -1,4 +1,4 @@
-import {NodeProps, TreeNode} from '../types';
+import {NodeProps, TreeNode} from "../types";
 
 /**
  * [createElement description]

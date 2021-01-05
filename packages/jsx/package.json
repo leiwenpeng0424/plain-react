@@ -1,25 +1,25 @@
 {
-  "name": "@vvs/jsx",
-  "version": "1.0.0",
-  "description": "babel jsx",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo"
-  },
-  "keywords": [
-    "babel",
-    "jsx"
-  ],
-  "author": "ray",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/helper-builder-react-jsx": "^7.10.4",
-    "@babel/parser": "^7.12.11",
-    "@babel/plugin-syntax-jsx": "^7.12.1",
-    "@babel/traverse": "^7.12.12",
-    "@babel/types": "^7.12.12"
-  }
+    "name": "@vvs/jsx",
+    "version": "1.0.0",
+    "description": "babel jsx",
+    "main": "index.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"don't do that test\""
+    },
+    "keywords": [
+        "babel",
+        "jsx"
+    ],
+    "author": "ray",
+    "license": "MIT",
+    "dependencies": {
+        "@babel/helpers": "^7.12.5",
+        "@babel/parser": "^7.12.11",
+        "@babel/plugin-syntax-jsx": "^7.12.1",
+        "@babel/traverse": "^7.12.12",
+        "@babel/types": "^7.12.12"
+    }
 }

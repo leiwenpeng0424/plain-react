@@ -1,1 +1,1 @@
-module.exports = require('glob');
+module.exports = require("glob");

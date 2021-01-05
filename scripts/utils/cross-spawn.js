@@ -1,1 +1,1 @@
-module.exports = require('cross-spawn');
+module.exports = require("cross-spawn");
