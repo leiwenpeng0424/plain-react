@@ -12,5 +12,8 @@
     ],
     "author": "ray",
     "license": "MIT",
-    "dependencies": {}
+    "devDependencies": {
+        "@babel/helper-plugin-utils": "^7.10.4",
+        "@babel/plugin-syntax-jsx": "^7.12.1"
+    }
 }

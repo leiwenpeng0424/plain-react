@@ -13,13 +13,6 @@ test("testing", () => {
         `,
         {
             plugins: [declare(), "@babel/plugin-syntax-jsx"]
-        },
-        (err, result) => {
-            if(err){
-                throw err;
-            } else {
-                console.log("解析结束");
-            }
         }
     )
 });

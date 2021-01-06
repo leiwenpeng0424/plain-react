@@ -1,5 +1,5 @@
 {
-    "name": "plain-react",
+    "name": "vvs",
     "license": "MIT",
     "private": true,
     "version": "0.0.0",
@@ -7,7 +7,7 @@
         "name": "ray",
         "email": "leiwenpeng1994@outlook.com"
     },
-    "homepage": "https://github.com/leiwenpeng0424/plain-react",
+    "homepage": "https://github.com/leiwenpeng0424/vvs",
     "keywords": [
         "react",
         "in",
