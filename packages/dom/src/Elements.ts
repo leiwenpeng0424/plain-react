@@ -169,13 +169,13 @@ function renderNodeElementIntoContainer(
     node: TreeElementNode,
     container: Element | Document
 ) {
-    if (!node.elem) {
-        node.elem = doc.createElement(node.type);
-    } else {
-        if(!container.contains(node.elem)) {
-            container.appendChild(node.elem);
-        }
-    }
+    // if (!node.elem) {
+    //     node.elem = doc.createElement(node.type);
+    // } else {
+    //     if(!container.contains(node.elem)) {
+    //         container.appendChild(node.elem);
+    //     }
+    // }
 }
 
 /**
@@ -185,7 +185,7 @@ function renderNodeElementIntoContainer(
  */
 function createNodeElement(node: TreeElementNode): Element | undefined {
     if (typeof node.type === "function") {
-        // node = node.type();
+        node = node.type();
     }
 
     return void 0;

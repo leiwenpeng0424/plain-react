@@ -15,6 +15,7 @@
         "node_modules",
         "example",
         "scripts",
+        "eslint",
         "**/dist/**",
         "**/__tests__/**"
     ]
