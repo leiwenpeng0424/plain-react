@@ -1,5 +1,5 @@
 //@ts-ignore
-import declare from "../index"
+import declare from "../src"
 import { transform } from "@babel/core";
 
 test("testing", () => {

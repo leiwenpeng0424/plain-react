@@ -98,7 +98,8 @@ function getSortedPackages(scope, ignore) {
         .reduce((arr, cur) => arr.concat(cur), [])
         .filter(
             (packageName) =>
-                matchPackageName(scopes, packageName, true) &&
+                matchPackageName
+                (scopes, packageName, true) &&
                 !matchPackageName(ignores, packageName, false)
         );
 

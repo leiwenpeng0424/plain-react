@@ -1,8 +1,6 @@
 /**
  * - 包装节点树, 从以children为关系的关联关系转换成一对一的上下关系
  *   使用next字段表示下级, 使用prev字段表示上级, siblings字段表示同级.
- *
- * -
  */
 
 import {TreeNode} from "@vvs/core";
@@ -58,10 +56,10 @@ function linkNode(node: TreeNode, parent?: TreeElementNode): TreeElementNode {
         elementNode.next = linkNode(curChildren[0], elementNode);
     }
     if (
-        parent &&
-        parent.children &&
-        Array.isArray(parent.children) &&
-        parent.children.length > 1
+        parent
+        && parent.children
+        && Array.isArray(parent.children)
+        && parent.children.length > 1
     ) {
         // 处理当前节点的siblings.
         // 如果上一个节点有没有siblings.
@@ -174,9 +172,9 @@ function renderNodeElementIntoContainer(
     if (!node.elem) {
         node.elem = doc.createElement(node.type);
     } else {
-        // if(!container.contains(node.elem)) {
-        //     container.appendChild(node.elem);
-        // }
+        if(!container.contains(node.elem)) {
+            container.appendChild(node.elem);
+        }
     }
 }
 
