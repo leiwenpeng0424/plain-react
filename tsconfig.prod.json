@@ -1,9 +1,9 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "sourceMap": false,
-        "strict": false,
-        "alwaysStrict": false,
-        "strictNullChecks": false
+        "sourceMap": true,
+        "strict": true,
+        "alwaysStrict": true,
+        "strictNullChecks": true
     }
 }

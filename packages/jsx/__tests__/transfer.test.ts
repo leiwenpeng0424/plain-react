@@ -1,6 +1,5 @@
-//@ts-ignore
-import declare from "../src"
-import { transform } from "@babel/core";
+import declare from "../src";
+import {transform} from "@babel/core";
 
 test("testing", () => {
     transform(
@@ -12,7 +11,7 @@ test("testing", () => {
                     </div>
         `,
         {
-            plugins: [declare(), "@babel/plugin-syntax-jsx"]
+            plugins: [declare, "@babel/plugin-syntax-jsx"]
         }
-    )
+    );
 });

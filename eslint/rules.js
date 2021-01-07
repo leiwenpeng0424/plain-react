@@ -1,9 +1,12 @@
 "use strict";
 
+const path = require("path");
+
 module.exports = {
     parserOptions: {
         ecmaVersion: 2020,
-        sourceType: "module"
+        sourceType: "module",
+        project: ["./tsconfig.json"]
     },
     rules: {
         "accessor-pairs": "error",
@@ -49,7 +52,7 @@ module.exports = {
         "id-blacklist": "error",
         "id-length": "off",
         "id-match": "error",
-        indent: ["error", 4, {SwitchCase: 1}],
+        indent: ["warn", 4, {SwitchCase: 1}],
         "init-declarations": "off",
         "jsx-quotes": ["warn", "prefer-double"],
         "key-spacing": "off",

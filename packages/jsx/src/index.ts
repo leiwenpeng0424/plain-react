@@ -1,27 +1,29 @@
-import {NodePath, PluginObj, Visitor} from "@babel/core";
-import * as t from "@babel/types";
+import {ConfigAPI, PluginObj, Visitor, types as t, NodePath} from "@babel/core";
 
 const visitor: Visitor = {};
 
-visitor.JSXElement = (path: NodePath<t.JSXElement>): void => {
-    // if (t.isJSXElement(path.node)) {
-    //     console.log(path.node);
-    // } else {
-    //     throw new Error("Expect a JSXElement");
-    // }
-
-    var a = 1;
+const METHODS = {
+    jsx: "jsx"
 };
 
-type A = {
-    name: string
-}
+const plugin = (api: ConfigAPI): PluginObj => {
+    api.assertVersion(7);
+    visitor.JSXElement = (path): void => {
+        buildJsxCallExpression(path);
+    };
 
-const plugin = (): PluginObj => {
     return {
         name: "vvs-jsx",
         visitor
     };
 };
+
+const buildJsxCallExpression = (
+    path: NodePath<t.JSXElement>
+): t.CallExpression => {
+    return t.callExpression();
+};
+
+const convertJsxElementIdentify = () => {};
 
 export default plugin;

@@ -15,5 +15,5 @@ import {createContainer, updateContainer} from "./Elements";
 export default function render(node: TreeNode, container: Element): void {
     const tree = createContainer(node, container);
     updateContainer(tree as Tree);
-    console.log(tree);
+    // console.log(tree);
 }
