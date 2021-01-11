@@ -1,4 +1,4 @@
-import {ConfigAPI, PluginObj, Visitor, types as t, NodePath} from "@babel/core";
+import {ConfigAPI, PluginObj, Visitor, types as t} from "@babel/core";
 
 const visitor: Visitor = {};
 
@@ -9,7 +9,13 @@ const METHODS = {
 const plugin = (api: ConfigAPI): PluginObj => {
     api.assertVersion(7);
     visitor.JSXElement = (path): void => {
-        buildJsxCallExpression(path);
+
+        const openingElement = path.get("openingElement");
+
+        const args = [
+            getJSXTagName(openingElement.node.name)
+        ];
+
     };
 
     return {
@@ -18,12 +24,15 @@ const plugin = (api: ConfigAPI): PluginObj => {
     };
 };
 
-const buildJsxCallExpression = (
-    path: NodePath<t.JSXElement>
-): t.CallExpression => {
-    return t.callExpression();
-};
+const getJSXTagName = <T extends (t.JSXIdentifier | t.JSXMemberExpression | t.JSXNamespacedName)>(node: T): T => {
+    if(t.isJSXMemberExpression(node)) {
 
-const convertJsxElementIdentify = () => {};
+    } else if(t.isJSXIdentifier(node)) {
+
+    } else if(t.isJSXNamespacedName(node)) {
+
+    }
+    return node;
+};
 
 export default plugin;
