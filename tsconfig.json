@@ -8,7 +8,9 @@
         "alwaysStrict": true,
         "skipLibCheck": true,
         "importHelpers": false,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "sourceMap": true,
+        "pretty": true
     },
     "exclude": [
         "node_modules",

@@ -13,6 +13,7 @@ module.exports = {
             plugins: ["@typescript-eslint"],
             extends: [
                 "plugin:@typescript-eslint/recommended",
+                // For TS Type-Checking, It's Necessary For Local Dev Enviroment
                 "plugin:@typescript-eslint/recommended-requiring-type-checking"
             ]
         },

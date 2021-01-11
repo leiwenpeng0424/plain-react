@@ -33,7 +33,6 @@ function createLinkedNode(root: TreeRootNode): TreeRootNode {
 }
 
 /**
- *
  * @example 对传入的TreeNode添加属性
  *  - 连接 *prev*
  *  - 连接 *next*
@@ -169,13 +168,13 @@ function renderNodeElementIntoContainer(
     node: TreeElementNode,
     container: Element | Document
 ) {
-    // if (!node.elem) {
-    //     node.elem = doc.createElement(node.type);
-    // } else {
-    //     if(!container.contains(node.elem)) {
-    //         container.appendChild(node.elem);
-    //     }
-    // }
+    if (!node.elem) {
+        node.elem = doc.createElement(node.type);
+    } else {
+        if(!container.contains(node.elem)) {
+            container.appendChild(node.elem);
+        }
+    }
 }
 
 /**
@@ -185,7 +184,7 @@ function renderNodeElementIntoContainer(
  */
 function createNodeElement(node: TreeElementNode): Element | undefined {
     if (typeof node.type === "function") {
-        // node = node.type();
+        node = node.type();
     }
 
     return void 0;

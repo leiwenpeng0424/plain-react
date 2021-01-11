@@ -144,8 +144,8 @@ function main() {
             // https://stackoverflow.com/questions/63128597/how-to-get-rid-of-the-rollup-plugin-typescript-rollup-sourcemap-option-must
             // avoiding Rollup `sourcemap` warning
             tsconfig: isProduction
-                ? "./tsconfig.dev.json"
-                : "./tsconfig.prod.json",
+                ? "./tsconfig.prod.json"
+                : "./tsconfig.json",
             exclude: ["**/__tests__/**", "**/npm/**", "**/dist/**", "**/lib/**"]
         })
         // sucrase({ transforms: ['typescript'] }),
