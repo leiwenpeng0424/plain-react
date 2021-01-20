@@ -1,5 +1,4 @@
 import declare from "../src";
-import plugin from "../src/transfer-arrow-function";
 import {transform} from "@babel/core";
 
 // const text = "123";
@@ -9,15 +8,15 @@ import {transform} from "@babel/core";
 //         </div>
 
 test("testing", () => {
-    const ast = transform(
-        `
-            const a = () => {
-                console.log('123');
-            }
-        `,
-        {
-            plugins: [declare, plugin, "@babel/plugin-syntax-jsx"]
+  const ast = transform(
+    `
+        const a = () => {
+            console.log('123');
         }
-    );
-    console.log(ast?.code);
+    `,
+    {
+      plugins: [declare, "@babel/plugin-syntax-jsx"]
+    }
+  );
+  console.log(ast?.code);
 });

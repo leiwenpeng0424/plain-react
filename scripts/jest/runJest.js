@@ -9,16 +9,16 @@ const args = minimist(process.argv.slice(2));
 const {_, scope, ...restArgs} = args;
 
 if (!scope || existsSync(resolve("packages", scope, "packages.json"))) {
-    log({
-        severity: "FATAL",
-        message: "请使用--scope指定至少一个需要运行测试用例的package(s)"
-    });
+  log({
+    severity: "FATAL",
+    message: "请使用--scope指定至少一个需要运行测试用例的package(s)"
+  });
 }
 
 const defaultArgs = {
-    colors: true,
-    env: "jsdom",
-    roots: "<rootDir>/packages/" + scope + "/__tests__/"
+  colors: true,
+  env: "jsdom",
+  roots: "<rootDir>/packages/" + scope + "/__tests__/"
 };
 
 /**
@@ -26,13 +26,13 @@ const defaultArgs = {
  * @type {FlatArray<string|number>[]}
  */
 const options = Object.entries({
-    ...defaultArgs,
-    ...restArgs
+  ...defaultArgs,
+  ...restArgs
 })
-    .map((argPair) => {
-        const [key, value] = argPair;
-        return ["--" + key, value];
-    })
-    .flat(1);
+  .map((argPair) => {
+    const [key, value] = argPair;
+    return ["--" + key, value];
+  })
+  .flat(1);
 
 spawn("jest", options, {stdio: "inherit"});

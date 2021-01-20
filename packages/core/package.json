@@ -1,24 +1,24 @@
 {
-    "name": "@vvs/core",
-    "version": "1.0.0",
-    "description": "vNode vTree",
-    "main": "./dist/core.development.cjs.js",
-    "scripts": {
-        "test": "echo \"don't execute test command here\""
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/leiwenpeng0424/plain-react.git"
-    },
-    "keywords": [
-        "virtual",
-        "dom"
-    ],
-    "author": "lei",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/leiwenpeng0424/plain-react/issues"
-    },
-    "homepage": "https://github.com/leiwenpeng0424/plain-react#readme",
-    "types": "./types/index.d.ts"
+  "name": "@vvs/core",
+  "version": "1.0.0",
+  "description": "vNode vTree",
+  "main": "./dist/core.development.cjs.js",
+  "scripts": {
+    "test": "echo \"don't execute test command here\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leiwenpeng0424/plain-react.git"
+  },
+  "keywords": [
+    "virtual",
+    "dom"
+  ],
+  "author": "lei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leiwenpeng0424/plain-react/issues"
+  },
+  "homepage": "https://github.com/leiwenpeng0424/plain-react#readme",
+  "types": "./types/index.d.ts"
 }
