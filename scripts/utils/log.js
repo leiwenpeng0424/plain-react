@@ -22,7 +22,7 @@ module.exports = ({
   switch (severity) {
     case "FATAL": {
       log(chalk.bgRed(message));
-      // eslint-disable-next-line no-process-exit
+      // eslint-config-disable-next-line no-process-exit
       process.exit(1);
     }
     case "ERROR": {
@@ -39,7 +39,7 @@ module.exports = ({
     }
   }
 
-  // eslint-disable-next-line no-process-env
+  // eslint-config-disable-next-line no-process-env
   // process.env.NODE_ENV === 'development' && log(message);
   log(message);
 };

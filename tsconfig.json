@@ -21,5 +21,6 @@
       ]
     }
   },
-  "exclude": ["node_modules", "scripts", "eslint", "**/dist/**"],
+  "exclude": ["node_modules", "scripts",
+    "packages/eslint-config", "**/dist/**"],
 }
