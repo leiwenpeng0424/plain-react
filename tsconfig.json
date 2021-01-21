@@ -13,8 +13,12 @@
     "lib": ["DOM", "ESNext"],
     "strict": true,
     "paths": {
-      "@core/*": ["packages/core/*"],
-      "@jsx/*": ["packages/jsx/*"]
+      "@core/*": [
+        "packages/core/*"
+      ],
+      "@jsx/*": [
+        "packages/jsx/*"
+      ]
     }
   },
   "exclude": ["node_modules", "scripts", "eslint", "**/dist/**"],
