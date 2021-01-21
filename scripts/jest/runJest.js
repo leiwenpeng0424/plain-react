@@ -6,7 +6,7 @@ const minimist = require("../utils/minimist");
 
 const args = minimist(process.argv.slice(2));
 
-const {_, scope, ...restArgs} = args;
+const {scope, ...restArgs} = args;
 
 if (!scope || existsSync(resolve("packages", scope, "packages.json"))) {
   log({

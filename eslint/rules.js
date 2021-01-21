@@ -1,12 +1,10 @@
 "use strict";
 
-const path = require("path");
-
 module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
-    project: ["./tsconfig.json"],
+    project: ["./tsconfig.json"]
   },
   rules: {
     "accessor-pairs": "error",
@@ -22,7 +20,7 @@ module.exports = {
     camelcase: "off",
     "comma-dangle": [
       "warn",
-      "never",
+      "never"
       //      {
       //        "arrays": "never",
       //        "objects": "never",
@@ -52,7 +50,7 @@ module.exports = {
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",
-    indent: ["warn", 2, { SwitchCase: 1 }],
+    indent: ["warn", 2, {SwitchCase: 1}],
     "init-declarations": "off",
     "jsx-quotes": ["warn", "prefer-double"],
     "key-spacing": "off",
@@ -87,8 +85,8 @@ module.exports = {
     "no-eval": [
       "error",
       {
-        allowIndirect: true,
-      },
+        allowIndirect: true
+      }
     ],
     "no-extend-native": "error",
     "no-extra-bind": "error",
@@ -100,8 +98,8 @@ module.exports = {
       {
         boolean: false,
         number: false,
-        string: false,
-      },
+        string: false
+      }
     ],
     "no-implicit-globals": "off",
     "no-implied-eval": "error",
@@ -119,7 +117,7 @@ module.exports = {
     "no-mixed-requires": "error",
     "no-multi-spaces": 0,
     "no-multi-str": "off",
-    "no-multiple-empty-lines": ["warn", { max: 1, maxEOF: 1 }],
+    "no-multiple-empty-lines": ["warn", {max: 1, maxEOF: 1}],
     "no-native-reassign": "error",
     "no-negated-condition": "off",
     "no-nested-ternary": "off",
@@ -156,7 +154,7 @@ module.exports = {
     "no-undefined": "off",
     "no-underscore-dangle": "off",
     "no-unmodified-loop-condition": "error",
-    "no-unneeded-ternary": ["error", { defaultAssignment: true }],
+    "no-unneeded-ternary": ["error", {defaultAssignment: true}],
     "no-unsafe-finally": "error",
     "no-unused-expressions": "off",
     "no-unused-vars": "warn",
@@ -174,7 +172,7 @@ module.exports = {
     "no-with": "error",
     "object-curly-newline": "off",
     "object-curly-spacing": ["warn", "never"],
-    "object-property-newline": [0, { allowMultiplePropertiesPerLine: true }],
+    "object-property-newline": [0, {allowMultiplePropertiesPerLine: true}],
     "object-shorthand": "off",
     "one-var": "off",
     "one-var-declaration-per-line": "off",
@@ -188,7 +186,7 @@ module.exports = {
     "prefer-spread": "off",
     "prefer-template": "off",
     "quote-props": "off",
-    quotes: ["warn", "double", { avoidEscape: true }],
+    quotes: ["error", "double", {avoidEscape: true}],
     radix: "off",
     "require-jsdoc": "off",
     "require-yield": "error",
@@ -198,10 +196,10 @@ module.exports = {
     "sort-imports": "off",
     "sort-vars": "off",
     "space-before-blocks": "off",
-    "space-before-function-paren": ["error", { anonymous: "always", named: "never" }],
+    "space-before-function-paren": ["error", {anonymous: "always", named: "never"}],
     "space-in-parens": "off",
     "space-infix-ops": "off",
-    "space-unary-ops": ["error", { nonwords: false, words: false }],
+    "space-unary-ops": ["error", {nonwords: false, words: false}],
     strict: "off",
     "template-curly-spacing": "error",
     "unicode-bom": ["error", "never"],
@@ -212,6 +210,6 @@ module.exports = {
     "yield-star-spacing": "error",
     yoda: "off",
     "spaced-comment": ["warn", "always"],
-    "no-extra-boolean-cast": "off",
-  },
+    "no-extra-boolean-cast": "off"
+  }
 };

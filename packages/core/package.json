@@ -1,24 +1,10 @@
 {
   "name": "@vvs/core",
   "version": "1.0.0",
-  "description": "vNode vTree",
-  "main": "./dist/core.development.cjs.js",
-  "scripts": {
-    "test": "echo \"don't execute test command here\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leiwenpeng0424/plain-react.git"
-  },
-  "keywords": [
-    "virtual",
-    "dom"
-  ],
-  "author": "lei",
+  "description": "core",
+  "main": "index.ts",
+  "repository": "https://github.com/leiwenpeng0424/vvs.git",
+  "author": "ray",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/leiwenpeng0424/plain-react/issues"
-  },
-  "homepage": "https://github.com/leiwenpeng0424/plain-react#readme",
-  "types": "./types/index.d.ts"
+  "private": false
 }

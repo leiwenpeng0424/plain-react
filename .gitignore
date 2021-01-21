@@ -103,8 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
-# project file
+# Project File
 .idea
-yarn.lock
+.vscode
 **/dist
-tags
+
+yarn.lock

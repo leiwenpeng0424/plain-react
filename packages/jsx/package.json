@@ -1,23 +1,10 @@
 {
   "name": "@vvs/jsx",
   "version": "1.0.0",
-  "description": "babel jsx",
-  "main": "./dist/jsx.development.cjs.js",
-  "scripts": {
-    "test": "echo \"don't do that test\""
-  },
-  "keywords": [
-    "babel",
-    "jsx"
-  ],
+  "description": "jsx",
+  "main": "index.ts",
+  "repository": "https://github.com/leiwenpeng0424/vvs.git",
   "author": "ray",
   "license": "MIT",
-  "dependencies": {
-    "@babel/helper-plugin-utils": "^7.10.4",
-    "@babel/plugin-syntax-jsx": "^7.12.1",
-    "@babel/types": "^7.12.12"
-  },
-  "peerDependencies": {
-    "@babel/core": "^7.12.10"
-  }
+  "private": false
 }
