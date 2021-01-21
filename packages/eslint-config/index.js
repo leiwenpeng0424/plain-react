@@ -1,1 +1,7 @@
-module.exports = require("./rules/rules");
+"use strict";
+
+module.exports = {
+  extends: [
+    require.resolve("./rules/base")
+  ]
+};

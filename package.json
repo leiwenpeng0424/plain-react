@@ -61,6 +61,8 @@
     }
   },
   "eslintConfig": {
-    "extends": ["@vvs/eslint-config-vvs"]
+    "extends": [
+      "@vvs/eslint-config-vvs"
+    ]
   }
 }

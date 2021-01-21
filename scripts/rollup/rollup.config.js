@@ -5,17 +5,17 @@ const fs = require("fs");
 const path = require("path");
 const glob = require("../utils/glob");
 const minimist = require("../utils/minimist");
-const {nodeResolve} = require("@rollup/plugin-node-resolve");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const replace = require("@rollup/plugin-replace");
 const json = require("@rollup/plugin-json");
 // const sucrase    = require('@rollup/plugin-sucrase');
 const ts = require("@rollup/plugin-typescript");
 const commonjs = require("@rollup/plugin-commonjs");
-const {terser} = require("rollup-plugin-terser");
+const { terser } = require("rollup-plugin-terser");
 const alias = require("@rollup/plugin-alias");
 
 const cwd = process.cwd();
-const {workspaces} = require("../../package.json");
+const { workspaces } = require("../../package.json");
 const DEFAULT_ARGUMENTS = {
   scope: "",
   ignore: ""
@@ -125,14 +125,14 @@ function bundleNameByModuleResolution(name, moduleResolution) {
 }
 
 function main() {
-  const {scope, ignore} = envs;
+  const { scope, ignore } = envs;
   const packages = getSortedPackages(scope, ignore);
   const plugins = [
     json(),
     commonjs({}),
-    replace({__DEV__: isDevelopment}),
+    replace({ __DEV__: isDevelopment }),
     alias({}),
-    nodeResolve({extensions: [".js", ".ts", ".mjs", ".json"]}),
+    nodeResolve({ extensions: [".js", ".ts", ".mjs", ".json"] }),
     ts({
       sourceMap: shouldUseSourcemaps,
       // https://stackoverflow.com/questions/63128597/how-to-get-rid-of-the-rollup-plugin-typescript-rollup-sourcemap-option-must
@@ -146,7 +146,7 @@ function main() {
     plugins.push(
       terser({
         numWorkers: getCUPs(),
-        output: {comments: isDevelopment && "all", ecma: 5}
+        output: { comments: isDevelopment && "all", ecma: 5 }
       })
     );
   }
