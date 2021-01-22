@@ -12,6 +12,7 @@
     "noImplicitReturns": true,
     "lib": ["DOM", "ESNext"],
     "strict": true,
+    "baseUrl": ".",
     "paths": {
       "@core/*": [
         "packages/core/*"
