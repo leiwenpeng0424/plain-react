@@ -8,11 +8,11 @@ const minimist = require("../utils/minimist");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const replace = require("@rollup/plugin-replace");
 const json = require("@rollup/plugin-json");
-// const sucrase    = require('@rollup/plugin-sucrase');
 const ts = require("@rollup/plugin-typescript");
 const commonjs = require("@rollup/plugin-commonjs");
 const { terser } = require("rollup-plugin-terser");
 const alias = require("@rollup/plugin-alias");
+// const sucrase    = require('@rollup/plugin-sucrase');
 
 const cwd = process.cwd();
 const { workspaces } = require("../../package.json");
@@ -155,7 +155,6 @@ function main() {
     const config = {
       plugins,
       input: path.resolve(cwd, pack.name, "src/index"),
-
       output: ["esm", "cjs", "umd"].map((resolution) => {
         return {
           format: resolution,

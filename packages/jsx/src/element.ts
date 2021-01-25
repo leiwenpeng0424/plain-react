@@ -11,6 +11,4 @@ export interface JsxPropsWithKey extends JsxProps {
   key: string | number
 }
 
-export default function jsx(name: string, props: JsxProps) {
-
-}
+export default function jsx(name: string, props: JsxProps) {}

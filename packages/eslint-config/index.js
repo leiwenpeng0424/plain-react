@@ -19,7 +19,10 @@ module.exports = {
       ]
     },
     {
-      files: ["packages/*/__tests__/**/*.{js,ts}"],
+      files: [
+        "**/*.test.{js,ts}",
+        "**/__tests__/**/*.{js,ts}"
+      ],
       env: {
         jest: true
       },
@@ -28,7 +31,7 @@ module.exports = {
       }
     },
     {
-      files: ["{eslint,scripts}/**/*.js"],
+      files: ["{scripts}/**/*.js"],
       env: {
         node: true
       },
