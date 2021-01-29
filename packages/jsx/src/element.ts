@@ -4,11 +4,11 @@ export interface BaseElement {
 }
 
 export interface JsxProps {
-  hildren?: any
+  children?: any
 }
 
 export interface JsxPropsWithKey extends JsxProps {
   key: string | number
 }
 
-export default function jsx(name: string, props: JsxProps) {}
+export function jsx(name: string, props: JsxProps) {}

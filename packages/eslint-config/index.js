@@ -38,6 +38,16 @@ module.exports = {
       rules: {
         "no-process-env": "off"
       }
+    },
+    {
+      files: ["{jsx,core}/index.js"],
+      env: {
+        node: true
+      },
+      rules: {
+        "no-process-env": "off",
+        "global-require": "off"
+      }
     }
   ]
 };

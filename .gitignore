@@ -106,6 +106,5 @@ dist
 # Project File
 .idea
 .vscode
-**/dist
 
 yarn.lock

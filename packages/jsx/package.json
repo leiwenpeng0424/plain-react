@@ -2,9 +2,12 @@
   "name": "@vvs/jsx",
   "version": "1.0.0",
   "description": "jsx",
-  "main": "index.ts",
+  "main": "index.js",
   "repository": "https://github.com/leiwenpeng0424/vvs.git",
   "author": "ray",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dist": {
+    "path": "./npm"
+  }
 }

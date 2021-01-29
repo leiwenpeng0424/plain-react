@@ -117,9 +117,9 @@ function getSortedPackages(scope, ignore) {
  */
 function bundleNameByModuleResolution(name, moduleResolution) {
   moduleResolution = moduleResolution.toLowerCase();
-  let suffix = "development";
+  let suffix = "dev";
   if (isProduction && !isDevelopment) {
-    suffix = "production";
+    suffix = "";
   }
   return name.replace(/\.(?<ext>.+)$/, "." + suffix + "." + moduleResolution + ".$1");
 }
@@ -155,7 +155,7 @@ function main() {
     const config = {
       plugins,
       input: path.resolve(cwd, pack.name, "src/index"),
-      output: ["esm", "cjs", "umd"].map((resolution) => {
+      output: ["umd"].map((resolution) => {
         return {
           format: resolution,
           exports: "auto",
@@ -164,7 +164,7 @@ function main() {
           file: path.resolve(
             cwd,
             pack.name,
-            "dist",
+            pack.pkg.dist.path,
             bundleNameByModuleResolution(pack.name.replace("packages/", "") + ".js", resolution)
           )
         };
