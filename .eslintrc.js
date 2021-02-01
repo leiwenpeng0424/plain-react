@@ -11,6 +11,7 @@ module.exports = {
   	node: true,
   	jest: true
   },
+  ignorePatterns: ["packages/**/npm"],
   overrides: [
   	{
       files: ["packages/**/*.ts"],
@@ -20,8 +21,10 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         // For TS Type-Checking, It's Necessary For Local Dev Environment
         "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ]
-  	},
+      ],
+      rules: {
+      }
+    },
     {
       files: [
         "packages/**/*.test.{js,ts}",
@@ -40,19 +43,19 @@ module.exports = {
         node: true
       },
       rules: {
-        "no-process-env": 0
-      }
-    },
-    {
-      files: ["{jsx,core}/index.js"],
-      env: {
-        node: true
-      },
-      rules: {
-        "no-process-env": "off",
-        "global-require": "off"
+        "no-process-exit": 0
       }
     }
+    // {
+    //   files: ["{jsx,core}/index.js"],
+    //   env: {
+    //     node: true
+    //   },
+    //   rules: {
+    //     "no-process-env": "off",
+    //     "global-require": "off"
+    //   }
+    // }
   ],
   rules: {
   	"accessor-pairs": "error",

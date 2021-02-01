@@ -12,7 +12,7 @@ if (!scope || existsSync(resolve("packages", scope, "packages.json"))) {
 }
 
 const defaultArgs = {
-  colors: ue,
+  colors: true,
   env: "jsdom",
   roots: "<rootDir>/packages/" + scope + "/__tests__/"
 };
