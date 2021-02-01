@@ -12,7 +12,6 @@ const ts = require("@rollup/plugin-typescript");
 const commonjs = require("@rollup/plugin-commonjs");
 const { terser } = require("rollup-plugin-terser");
 const alias = require("@rollup/plugin-alias");
-// const sucrase    = require('@rollup/plugin-sucrase');
 
 const cwd = process.cwd();
 const { workspaces } = require("../../package.json");

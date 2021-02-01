@@ -54,10 +54,5 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.ts$": "ts-jest"
     }
-  },
-  "eslintConfig": {
-    "extends": [
-      "@vvs/eslint-config-vvs"
-    ]
   }
 }

@@ -6,8 +6,56 @@ module.exports = {
     sourceType: "module",
     project: ["./tsconfig.json"]
   },
+  env: {
+  	browser: true,
+  	node: true,
+  	jest: true
+  },
+  overrides: [
+  	{
+      files: ["packages/**/*.ts"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+      extends: [
+        "plugin:@typescript-eslint/recommended",
+        // For TS Type-Checking, It's Necessary For Local Dev Environment
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ]
+  	},
+    {
+      files: [
+        "packages/**/*.test.{js,ts}",
+        "packages/**/__tests__/**/*.{js,ts}"
+      ],
+      env: {
+        jest: true
+      },
+      rules: {
+        "@typescript-eslint/ban-ts-comment": "off"
+      }
+    },
+    {
+      files: ["scripts/**/*.js"],
+      env: {
+        node: true
+      },
+      rules: {
+        "no-process-env": 0
+      }
+    },
+    {
+      files: ["{jsx,core}/index.js"],
+      env: {
+        node: true
+      },
+      rules: {
+        "no-process-env": "off",
+        "global-require": "off"
+      }
+    }
+  ],
   rules: {
-    "accessor-pairs": "error",
+  	"accessor-pairs": "error",
     "array-bracket-spacing": ["error", "never"],
     "array-callback-return": "error",
     "arrow-body-style": ["off", "always"],

@@ -1,4 +1,3 @@
-// @FIXME
-// @TODO
-// @NOTE
+"use strict";
+
 module.exports = require("minimist");
