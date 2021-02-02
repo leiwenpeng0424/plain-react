@@ -3,7 +3,10 @@ export type ElementChild = BaseElement | Array<BaseElement>;
 
 type PreservedKeys = "children" | "key";
 
-export type ElementProps = Record<keyof PreservedKeys & any, unknown>;
+export type ElementProps = Record<
+  keyof PreservedKeys | string | number,
+  unknown
+>;
 
 export class BaseElement {
   type: ElementType;

@@ -21,6 +21,4 @@ export class BaseClass<S, P> {
   setState(state: S, callback: UpdateCallBack) {
     this.updater.enqueueUpdate<S>(state, callback);
   }
-
-  render() {}
 }

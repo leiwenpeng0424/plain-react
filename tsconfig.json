@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@core/*": ["packages/core/*"],
-      "@renderer/*": ["packages/renderer/*"]
+      "@renderer/*": ["packages/renderer/*"],
+      "@differ/*": ["packages/differ/*"]
     }
   },
   "include": ["packages"]

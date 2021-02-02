@@ -1,4 +1,4 @@
-import { BaseElement } from "@core/src/BaseElement";
+import { BaseElement } from "@core/src";
 
 export class BaseRoot<T> {
   containerInfo: T;
@@ -22,6 +22,6 @@ export class BaseRenderer<T> {
   }
 
   render(): void {
-    console.info("Should Implement This Method For Each Renderer SubClasses");
+    console.info("Should Implement This Method For Each SubClasses");
   }
 }

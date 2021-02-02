@@ -31,7 +31,6 @@ export class BaseUpdater {
     const comingUpdate = new BaseUpdate<T>(state, callback);
     let { pending, update } = this.updateQueue;
     if (!update) {
-      //  init updateQueue, Make it a circle.
       update = comingUpdate;
       pending = comingUpdate;
       pending.next = update;
